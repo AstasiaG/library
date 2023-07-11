@@ -1,0 +1,50 @@
+.header {
+  width: 1400px;
+  margin: 0 auto;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+}
+
+h1 {
+  font: 300 30px/50px "Forum", cursive;
+  letter-spacing: 0.02em;
+  color: #FFFFFF;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  padding: 20px;
+  background-color: #0C0C0E;
+}
+
+.left__side {
+  display: flex;
+  align-content: center;
+}
+
+.list {
+  display: flex;
+  list-style-type: none;
+}
+
+.nav__item {
+  margin-right: 30px;
+  font: 400 20px/50px "Inter", sans-serif;
+}
+
+.link {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+/*# sourceMappingURL=style.css.map */
