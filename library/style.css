@@ -1,4 +1,4 @@
-.welcome, .header {
+.about, .welcome, .header {
   width: 1400px;
   padding-left: 20px;
   padding-right: 20px;
@@ -22,9 +22,21 @@ h1 {
 }
 
 h2 {
-  font: 300 40px/50px "Forum", cursive;
-  letter-spacing: 0.02em;
-  color: #FFFFFF;
+  font: 300 40px/40px "Forum", cursive;
+  letter-spacing: 0.04em;
+  margin-bottom: 40px;
+}
+
+h2::after {
+  content: "";
+  position: relative;
+  top: 0;
+  left: 48%;
+  display: block;
+  width: 50px;
+  height: 1px;
+  margin-top: 20px;
+  background-color: #0C0C0E;
 }
 
 .header {
@@ -61,40 +73,55 @@ h2 {
 }
 
 .welcome {
-  position: relative;
-
   padding-top: 220px;
   padding-bottom: 160px;
-
   background-image: url(./images/Welcome.png);
   background-position: center center;
 }
 
-.welcome::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 300px;
-
-  background: linear-gradient(to bottom, rgba(12, 12, 14, 1), rgba(18, 18, 21 ,0.1));
-}
-
 .welcome__content {
-  position: relative;
-  z-index: 1;
-  
   width: 520px;
   padding: 35px 40px;
   margin-left: -20px;
   background-color: #0C0C0E;
   text-align: center;
 }
-.welcome__content h2 {
+
+.welcome__title {
+  font: 300 40px/50px "Forum", cursive;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  letter-spacing: 0.075em;
+  color: #FFFFFF;
+}
+
+.about {
+  padding-top: 20px;
+  padding-bottom: 40px;
+  text-align: center;
+}
+
+.description {
+  font-weight: 400;
+  line-height: 40px;
+}
+
+.slider {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.slider__dot {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  padding: 5px;
+  margin: -3px;
+  background-color: #0C0C0E;
+  background-clip: content-box;
+  border: 0;
+  border-radius: 50px;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -32,9 +32,23 @@ h1 {
 }
 
 h2 {
-  @include font(300, 40px, 50px, $forum-font);
-  letter-spacing: 0.02em;
-  color: #FFFFFF;
+  @include font(300, 40px, 40px, $forum-font);
+  letter-spacing: 0.04em;
+  margin-bottom: 40px;
+}
+
+h2::after {
+  content: "";
+  position: relative;
+  top: 0;
+  left: 48%;
+
+  display: block;
+  width: 50px;
+  height: 1px;
+  margin-top: 20px;
+
+  background-color: $color-dark;
 }
 
 .header {
@@ -89,9 +103,45 @@ h2 {
 
   background-color: #0C0C0E;
   text-align: center;
+}
 
-  h2 {
-    text-transform: uppercase;
-    letter-spacing: 0.075em;
-  }
+.welcome__title {
+  @include font(300, 40px, 50px, $forum-font);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+.about {
+  @extend %wrapper;
+  padding-top: 20px;
+  padding-bottom: 40px;
+
+  text-align: center;
+}
+
+.description {
+  font-weight: 400;
+  line-height: 40px;
+}
+
+.slider {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.slider__dot {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  padding: 5px;
+  margin: -3px;
+
+  background-color: $color-dark;
+  background-clip: content-box;
+  border: 0;
+  border-radius: 50px;
 }
