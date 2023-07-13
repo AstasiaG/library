@@ -1,114 +1,161 @@
-.about, .welcome, .header {
-  width: 1400px;
-  padding-left: 20px;
-  padding-right: 20px;
-  margin: 0 auto;
-}
+:root {
+  --forum-regular-big: 400 40px/50px 'Forum', cursive;
+  --forum-regular-big-second: 400 40px/40px 'Forum', cursive;
+  --forum-regular-second: 400 30px/50px 'Forum', cursive;
+  --forum-regular-second-normal: 400 30px/normal 'Forum', cursive;
+  --forum-regular-small: 400 20px/40px 'Forum', cursive;
 
-* {
-  margin: 0;
-  padding: 0;
+  --inter-regular-big: 400 30px/normal 'Inter', sans-serif;
+  --inter-regular-second: 400 20px/50px 'Inter', sans-serif;
+  --inter-regular-main: 400 20px/40px 'Inter', sans-serif;
+  --inter-regular-main-second: 400 20px/20px 'Inter', sans-serif;
+  --inter-regular-main-normal: 400 20px/normal 'Inter', sans-serif;
+  --inter-regular-small: 400 15px/40px 'Inter', sans-serif;
+  --inter-regular-small-second: 400 15px/20px 'Inter', sans-serif;
+  --inter-bold-main: 700 20px/40px 'Inter', sans-serif;
+  --inter-bold-main-normal: 700 20px/normal 'Inter', sans-serif;
+  --inter-bold-small: 700 15px/40px 'Inter', sans-serif;
+  --inter-bold-small-normal: 700 10px/normal 'Inter', sans-serif;
 }
 
 body {
-  font-family: "Inter", sans-serif;
-  font-size: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+ul {
+  list-style-type: none;
 }
 
 h1 {
-  font: 300 30px/50px "Forum", cursive;
-  letter-spacing: 0.02em;
-  color: #FFFFFF;
+  font: var(--forum-regular-second);
+  letter-spacing: 0.6px;
+  color: #ffffff;
 }
 
 h2 {
-  font: 300 40px/40px "Forum", cursive;
-  letter-spacing: 0.04em;
-  margin-bottom: 40px;
+  font: var(--forum-regular-big-second);
+  letter-spacing: 2px;
 }
 
-h2::after {
+h3 {
+  margin: 0;
+  font: var(--forum-regular-small);
+  letter-spacing: 2px;
+}
+
+h3::after {
   content: "";
-  position: relative;
-  top: 0;
-  left: 48%;
+
   display: block;
-  width: 50px;
+  width: 60px;
   height: 1px;
-  margin-top: 20px;
-  background-color: #0C0C0E;
+
+  background-color: #BB945F;
+}
+
+.container {
+  width: 1440px;
+  margin: 0 auto;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
-  height: 50px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  width: 1400px;
+  padding: 20px;
+
   background-color: #0C0C0E;
 }
 
 .left__side {
   display: flex;
+  gap: 40px;
   align-items: center;
 }
 
 .list {
   display: flex;
-  list-style-type: none;
+  gap: 30px;
 }
 
 .nav__item {
-  margin-right: 30px;
-  font: 400 20px/50px "Inter", sans-serif;
-}
-
-.nav__item:last-child {
-  margin-right: 40px;
-}
-
-.link {
-  text-decoration: none;
-  color: #FFFFFF;
+  font: var(--inter-regular-second);
 }
 
 .welcome {
-  padding-top: 220px;
-  padding-bottom: 160px;
+  position: relative;
+
+  width: 100%;
+  padding: 220px 0 160px;
+
   background-image: url(./images/Welcome.png);
   background-position: center center;
 }
 
+.welcome::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 300px;
+
+  background: linear-gradient(180deg, #0C0C0E 0%, #0C0C0E 0.01%, rgba(18, 18, 21, 0.10) 100%);
+}
+
 .welcome__content {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 520px;
   padding: 35px 40px;
-  margin-left: -20px;
+
   background-color: #0C0C0E;
-  text-align: center;
 }
 
 .welcome__title {
-  font: 300 40px/50px "Forum", cursive;
-  letter-spacing: 0.08em;
+  font: var(--forum-regular-big);
+  letter-spacing: 3px;
+  text-align: center;
   text-transform: uppercase;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
-.about {
-  padding-top: 20px;
-  padding-bottom: 40px;
+.about,
+.favorites {
+  padding: 20px 20px 40px;
+
   text-align: center;
 }
 
-.description {
-  font-weight: 400;
-  line-height: 40px;
+.line-after::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 1px;
+  margin: 20px auto 0;
+
+  background-color: #0C0C0E;
+}
+
+.about__description {
+  margin: 40px 0 20px;
+  font: var(--inter-regular-main);
 }
 
 .slider {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
   margin-bottom: 40px;
 }
 
@@ -117,11 +164,82 @@ h2::after {
   width: 16px;
   height: 16px;
   padding: 5px;
-  margin: -3px;
+
   background-color: #0C0C0E;
   background-clip: content-box;
-  border: 0;
   border-radius: 50px;
 }
 
-/*# sourceMappingURL=style.css.map */
+.slider__dot:first-child {
+  background-color: #BB945F;
+}
+
+.books {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-right: 40px;
+  margin-top: 40px;
+  gap: 40px;
+}
+
+.book {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 508px;
+  height: 523px;
+  padding: 15px 20px;
+
+  border: 1px solid #0C0C0E;
+  text-align: left;
+}
+
+.book__name {
+  margin: 19px 0 20px;
+
+  font: var(--inter-bold-small);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.author {
+  text-transform: none;
+}
+
+.book__description {
+  width: 355px;
+
+  font: var(--inter-regular-small);
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+
+.book-cover {
+  position: absolute;
+  bottom: -1px;
+  right: -40px;
+
+  display: block;
+  width: 200px;
+}
+
+.button {
+  width: 73px;
+  height: 28px;
+
+  background-color: #ffffff;
+  border: 1px solid #0C0C0E;
+  border-radius: 2px;
+
+  font: var(--inter-bold-small-normal);
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.button:disabled {
+  color: #BB945F;
+  border: 1px solid #BB945F;
+}
