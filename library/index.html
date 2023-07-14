@@ -10,194 +10,210 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <!--Header-->
-    <header class="header">
-      <h1>Brooklyn Public Library</h1>
-      <div class="left__side">
-        <nav>
-          <ul class="list">
-            <li class="nav__item">
-              <a href="#0">About</a>
-            </li>
-            <li class="nav__item">
-              <a href="#0">Favorites</a>
-            </li>
-            <li class="nav__item">
-              <a href="#0">Coffee shop</a>
-            </li>
-            <li class="nav__item">
-              <a href="#0">Contacts</a>
-            </li>
-            <li class="nav__item">
-              <a href="#0">Library Card</a>
-            </li>
-          </ul>
-        </nav>
-        <a href="">
-          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14ZM18.6667 7.77778C18.6667 10.3551 16.5774 12.4444 14.0001 12.4444C11.4227 12.4444 9.33339 10.3551 9.33339 7.77778C9.33339 5.20045 11.4227 3.11111 14.0001 3.11111C16.5774 3.11111 18.6667 5.20045 18.6667 7.77778ZM19.4998 16.2781C20.9584 17.7367 21.7778 19.715 21.7778 21.7778H14L6.22225 21.7778C6.22225 19.715 7.0417 17.7367 8.50031 16.2781C9.95893 14.8194 11.9372 14 14 14C16.0628 14 18.0411 14.8194 19.4998 16.2781Z" fill="white"/>
-          </svg>
-        </a>
+  <!--Header-->
+  <header class="container page-header">
+    <h1>Brooklyn Public Library</h1>
+    <div class="left__side">
+      <nav>
+        <ul class="list">
+          <li class="nav__item">
+            <a href="#0">About</a>
+          </li>
+          <li class="nav__item">
+            <a href="#0">Favorites</a>
+          </li>
+          <li class="nav__item">
+            <a href="#0">Coffee shop</a>
+          </li>
+          <li class="nav__item">
+            <a href="#0">Contacts</a>
+          </li>
+          <li class="nav__item">
+            <a href="#0">Library Card</a>
+          </li>
+        </ul>
+      </nav>
+      <a href="">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14ZM18.6667 7.77778C18.6667 10.3551 16.5774 12.4444 14.0001 12.4444C11.4227 12.4444 9.33339 10.3551 9.33339 7.77778C9.33339 5.20045 11.4227 3.11111 14.0001 3.11111C16.5774 3.11111 18.6667 5.20045 18.6667 7.77778ZM19.4998 16.2781C20.9584 17.7367 21.7778 19.715 21.7778 21.7778H14L6.22225 21.7778C6.22225 19.715 7.0417 17.7367 8.50031 16.2781C9.95893 14.8194 11.9372 14 14 14C16.0628 14 18.0411 14.8194 19.4998 16.2781Z" fill="white"/>
+        </svg>
+      </a>
+    </div>
+    
+  </header>
+  <!--main-->
+  <main>
+    <section class="container welcome">
+      <div class="welcome__content">
+        <span class="welcome__title">Welcome<br>to the Brooklyn<br>Library</span>
       </div>
-    </header>
-    <!--main-->
-    <main>
-      <section class="welcome">
-        <div class="welcome__content">
-          <span class="welcome__title">Welcome<br>to the Brooklyn<br>Library</span>
+    </section>
+    <section class="container section" id="about">
+      <h2 class="line-after">About</h2>
+      <p class="about__description">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside</p>
+      <!--Slider-->
+      <div class="slider">
+        <img src="./images/slider_1.jpg" alt="" class="slider__image">
+        <img src="./images/slider_2.jpg" alt="" class="slider__image">
+        <img src="./images/slider_3.jpg" alt="" class="slider__image">
+      </div>
+      <div class="slider__nav">
+        <a class="slider__dot" href="#0"></a>
+        <a class="slider__dot" href="#0"></a>
+        <a class="slider__dot" href="#0"></a>
+      </div>
+    </section>
+    <!--Favorites-->
+    <section class="container section" id="favorites">
+      <h2 class="line-after">Favorites</h2>
+      <form>
+        <p class="form__title">Pick favorites of season</p>
+        <label>Winter
+          <input type="radio">
+          <span class="radio"></span>
+        </label>
+      </form>
+      <!--Books list-->
+      <div class="books">
+        <article class="book">
+          <div class="book__content">
+            <h3>Staff Picks</h3>
+            <p class="book__name">The Book Eaters<br><span class="author">By Sunyi Dean</span></p>
+            <p class="book__description">
+              An unusual sci-fi story about a book eater woman who tries desperately to save her dangerous mind-eater son from tradition and certain death. Complete with dysfunctional family values, light Sapphic romance, and a strong, complex protagonist. Not for the faint of heart.
+            </p>
+          </div>
+          <img class="book-cover" src="./images/winter_book1.jpg" alt="">
+          <button class="button">Buy</button>
+        </article>
+        <article class="book">
+          <div class="book__content">
+            <h3>Staff Picks</h3>
+            <p class="book__name">Cackle<br><span class="author">By Rachel Harrison</span></p>
+            <p class="book__description">
+              Are your Halloween movies of choice The Witches of Eastwick and Practical Magic? Look no further than here - where a woman recovering from a breakup moves to a quaint town in upstate New York and befriends a beautiful witch.
+            </p>
+          </div>
+          <img class="book-cover" src="./images/winter_book2.jpg" alt="">
+          <button class="button">Buy</button>
+        </article>
+        <article class="book">
+          <div class="book__content">
+            <h3>Staff Picks</h3>
+            <p class="book__name">Dante: Poet of the Secular World<br><span class="author">By Erich Auerbach</span></p>
+            <p class="book__description">
+              Auerbach's engaging book places the 'Comedy' within the tradition of epic, tragedy, and philosophy in general, arguing for Dante's uniqueness as one who raised the individual and his drama of soul into something of divine significance—an inspired introduction to Dante's main themes.
+            </p>
+          </div>
+          <img class="book-cover" src="./images/winter_book3.jpg" alt="">
+          <button class="button">Buy</button>
+        </article>
+        <article class="book">
+          <div class="book__content">
+            <h3>Staff Picks</h3>
+            <p class="book__name">The Last Queen<br><span class="author">By Clive Irving</span></p>
+            <p class="book__description">
+              A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.
+            </p>
+          </div>
+          <img class="book-cover" src="./images/winter_book4.jpg" alt="">
+          <button class="button" disabled>Buy</button>
+        </article>
+      </div>
+    </section>
+    <!--Coffee shop-->
+    <section class="container section" id="coffee-shop">
+      <h2 class="line-after">Coffee Shop</h2>
+      <p class="shop__description">
+        In our library, we have of cozy coffee shop, welcoming in customers with frothy cappuccinos and friendly conversation. You can get a
+         favorite book and read in coffee shop. Our barista to cook you best coffee, and also you can try desserts from bakery.
+      </p>
+      <div class="prices">
+        <article class="drinks">
+          <h2 class="price__title">Coffee & Tea</h2>
+          <div class="price__item">
+            <span class="price-name">Cold Brew Coffee</span>
+            <span class="price-line"></span>
+            <span class="price-cost">$3</span>
+          </div>
+          <div class="price__item">
+            <span class="price-name">French Press Pot</span>
+            <span class="price-line"></span>
+            <span class="price-cost">$5</span>
+          </div>
+          <div class="price__item">
+            <span class="price-name">Espresso</span>
+            <span class="price-line"></span>
+            <span class="price-cost">$2</span>
+          </div>
+          <div class="price__item">
+            <span class="price-name">Cappuccino</span>
+            <span class="price-line"></span>
+            <span class="price-cost">$4</span>
+          </div>
+          <div class="price__item">
+            <span class="price-name">Hot tea</span>
+            <span class="price-line"></span>
+            <span class="price-cost">$2</span>
+          </div>
+          <div class="price__item">
+            <span class="price-name">Cold tea</span>
+            <span class="price-line"></span>
+            <span class="price-cost">$2</span>
+          </div>
+        </article>
+        <article class="cakes">
+          <h2 class="price__title">Desserts & Cakes</h2>
+          <div class="price__item">
+            <span class="price-name">Forest Gateau</span>
+            <span class="price-line"></span>
+            <span class="price-cost">$16</span>
+          </div>
+          <div class="price__item">
+            <span class="price-name">Blue Moon</span>
+            <span class="price-line"></span>
+            <span class="price-cost">$16</span>
+          </div>
+          <div class="price__item">
+            <span class="price-name">Truffle Cake</span>
+            <span class="price-line"></span>
+            <span class="price-cost">$15</span>
+          </div>
+          <div class="price__item">
+            <span class="price-name">Chocolate Cake</span>
+            <span class="price-line"></span>
+            <span class="price-cost">$18</span>
+          </div>
+          <div class="price__item">
+            <span class="price-name">Poet’s Dream Cake</span>
+            <span class="price-line"></span>
+            <span class="price-cost">$16</span>
+          </div>
+          <div class="price__item">
+            <span class="price-name">Pineapple Cake</span>
+            <span class="price-line"></span>
+            <span class="price-cost">$14</span>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="container section" id="contacts">
+      <h2 class="line-after">Our Contacts</h2>
+      <div class="content">
+        <div class="contacts__list">
+          <p class="contacts__focus">For all Library inquiries:</p>
+          <div class="contacts__wrapper">
+            <span class="contact">Please call <a href="tel:6177902370">(617) 730-2370</a></span>
+            <span class="contact">For TTY service, please call <a href="tel:6177902370">(617) 730-2370</a></span>
+            <span class="contact">Putterham Library: <a href="tel:6177302385">(617) 730-2385</a></span>
+          </div>
+          <p class="contacts__focus">Senior Staff</p>
+          <span class="contact">Library Director: <a class="bold-link" href="mailto:AmandaHirst@gmail.com">Amanda Hirst</a></span>
         </div>
-      </section>
-      <section class="about" id="about">
-        <h2 class="line-after">About</h2>
-        <p class="about__description">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside</p>
-        <!--Slider-->
-        <div class="slider">
-          <img src="./images/slider_1.jpg" alt="" class="slider__image">
-          <img src="./images/slider_2.jpg" alt="" class="slider__image">
-          <img src="./images/slider_3.jpg" alt="" class="slider__image">
-        </div>
-        <div class="slider__nav">
-          <a class="slider__dot" href="#0"></a>
-          <a class="slider__dot" href="#0"></a>
-          <a class="slider__dot" href="#0"></a>
-        </div>
-      </section>
-      <!--Favorites-->
-      <section class="favorites" id="favorites">
-        <h2 class="line-after">Favorites</h2>
-        <form>
-          <p class="form__title">Pick favorites of season</p>
-          <label>Winter
-            <input type="radio">
-            <span class="radio"></span>
-          </label>
-        </form>
-        <!--Books list-->
-        <div class="books">
-          <article class="book">
-            <div class="book__content">
-              <h3>Staff Picks</h3>
-              <p class="book__name">The Book Eaters<br><span class="author">By Sunyi Dean</span></p>
-              <p class="book__description">
-                An unusual sci-fi story about a book eater woman who tries desperately to save her dangerous mind-eater son from tradition and certain death. Complete with dysfunctional family values, light Sapphic romance, and a strong, complex protagonist. Not for the faint of heart.
-              </p>
-            </div>
-            <img class="book-cover" src="./images/winter_book1.jpg" alt="">
-            <button class="button">Buy</button>
-          </article>
-          <article class="book">
-            <div class="book__content">
-              <h3>Staff Picks</h3>
-              <p class="book__name">Cackle<br><span class="author">By Rachel Harrison</span></p>
-              <p class="book__description">
-                Are your Halloween movies of choice The Witches of Eastwick and Practical Magic? Look no further than here - where a woman recovering from a breakup moves to a quaint town in upstate New York and befriends a beautiful witch.
-              </p>
-            </div>
-            <img class="book-cover" src="./images/winter_book2.jpg" alt="">
-            <button class="button">Buy</button>
-          </article>
-          <article class="book">
-            <div class="book__content">
-              <h3>Staff Picks</h3>
-              <p class="book__name">Dante: Poet of the Secular World<br><span class="author">By Erich Auerbach</span></p>
-              <p class="book__description">
-                Auerbach's engaging book places the 'Comedy' within the tradition of epic, tragedy, and philosophy in general, arguing for Dante's uniqueness as one who raised the individual and his drama of soul into something of divine significance—an inspired introduction to Dante's main themes.
-              </p>
-            </div>
-            <img class="book-cover" src="./images/winter_book3.jpg" alt="">
-            <button class="button">Buy</button>
-          </article>
-          <article class="book">
-            <div class="book__content">
-              <h3>Staff Picks</h3>
-              <p class="book__name">The Last Queen<br><span class="author">By Clive Irving</span></p>
-              <p class="book__description">
-                A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.
-              </p>
-            </div>
-            <img class="book-cover" src="./images/winter_book4.jpg" alt="">
-            <button class="button" disabled>Buy</button>
-          </article>
-        </div>
-      </section>
-      <!--Coffee shop-->
-      <section class="coffee-shop" id="coffee-shop">
-        <h2 class="line-after">Coffee Shop</h2>
-        <p class="shop__description">
-          In our library, we have of cozy coffee shop, welcoming in customers with frothy cappuccinos and friendly conversation. You can get a
-           favorite book and read in coffee shop. Our barista to cook you best coffee, and also you can try desserts from bakery.
-        </p>
-        <div class="prices">
-          <article class="drinks">
-            <h2 class="price__title">Coffee & Tea</h2>
-            <div class="price__item">
-              <span class="price-name">Cold Brew Coffee</span>
-              <span class="price-line"></span>
-              <span class="price-cost">$3</span>
-            </div>
-            <div class="price__item">
-              <span class="price-name">French Press Pot</span>
-              <span class="price-line"></span>
-              <span class="price-cost">$5</span>
-            </div>
-            <div class="price__item">
-              <span class="price-name">Espresso</span>
-              <span class="price-line"></span>
-              <span class="price-cost">$2</span>
-            </div>
-            <div class="price__item">
-              <span class="price-name">Cappuccino</span>
-              <span class="price-line"></span>
-              <span class="price-cost">$4</span>
-            </div>
-            <div class="price__item">
-              <span class="price-name">Hot tea</span>
-              <span class="price-line"></span>
-              <span class="price-cost">$2</span>
-            </div>
-            <div class="price__item">
-              <span class="price-name">Cold tea</span>
-              <span class="price-line"></span>
-              <span class="price-cost">$2</span>
-            </div>
-          </article>
-          <article class="cakes">
-            <h2 class="price__title">Desserts & Cakes</h2>
-            <div class="price__item">
-              <span class="price-name">Forest Gateau</span>
-              <span class="price-line"></span>
-              <span class="price-cost">$16</span>
-            </div>
-            <div class="price__item">
-              <span class="price-name">Blue Moon</span>
-              <span class="price-line"></span>
-              <span class="price-cost">$16</span>
-            </div>
-            <div class="price__item">
-              <span class="price-name">Truffle Cake</span>
-              <span class="price-line"></span>
-              <span class="price-cost">$15</span>
-            </div>
-            <div class="price__item">
-              <span class="price-name">Chocolate Cake</span>
-              <span class="price-line"></span>
-              <span class="price-cost">$18</span>
-            </div>
-            <div class="price__item">
-              <span class="price-name">Poet’s Dream Cake</span>
-              <span class="price-line"></span>
-              <span class="price-cost">$16</span>
-            </div>
-            <div class="price__item">
-              <span class="price-name">Pineapple Cake</span>
-              <span class="price-line"></span>
-              <span class="price-cost">$14</span>
-            </div>
-          </article>
-        </div>
-      </section>
-    </main>
-  </div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3025.015792369555!2d-73.99387252494415!3d40.695649838617946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a49b649b8c3%3A0x6342a2291cea2e!2s286%20Cadman%20Plaza%20W%2C%20Brooklyn%2C%20NY%2011201%2C%20USA!5e0!3m2!1sen!2sge!4v1689326937825!5m2!1sen!2sge" width="696" height="414" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </section>
+  </main>
+  <footer></footer>
 </body>
 </html>

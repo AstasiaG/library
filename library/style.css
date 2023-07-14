@@ -42,6 +42,7 @@ h2 {
   margin: 0;
   font: var(--forum-regular-big-second);
   letter-spacing: 2px;
+  text-align: center;
 }
 
 h3 {
@@ -61,15 +62,18 @@ h3::after {
 }
 
 .container {
-  width: 1440px;
+  width: 1400px;
+  padding: 0 20px;
   margin: 0 auto;
 }
 
-.header {
+.section {
+  padding: 20px 0 40px;
+}
+
+.page-header {
   display: flex;
   justify-content: space-between;
-  width: 1400px;
-  padding: 20px;
 
   background-color: #0C0C0E;
 }
@@ -92,7 +96,7 @@ h3::after {
 .welcome {
   position: relative;
 
-  width: 100%;
+  width: 1440px;
   padding: 220px 0 160px;
 
   background-image: url(./images/Welcome.png);
@@ -132,14 +136,6 @@ h3::after {
   color: #ffffff;
 }
 
-.about,
-.favorites,
-.coffee-shop {
-  padding: 20px 20px 40px;
-
-  text-align: center;
-}
-
 .line-after::after {
   content: "";
   display: block;
@@ -153,12 +149,17 @@ h3::after {
 .about__description {
   margin: 40px 0 20px;
   font: var(--inter-regular-main);
+  text-align: center;
 }
 
 .slider {
   display: flex;
   justify-content: space-between;
   margin-bottom: 40px;
+}
+
+.slider__nav {
+  text-align: center;
 }
 
 .slider__dot {
@@ -250,6 +251,7 @@ h3::after {
   margin: 40px 0;
   font: var(--inter-regular-main);
   letter-spacing: 2px;
+  text-align: center;
 }
 
 .prices {
@@ -267,6 +269,8 @@ h3::after {
 
 .price__title {
   margin: 0;
+
+  text-align: inherit;
   color: #BB945F;
 }
 
@@ -303,4 +307,45 @@ h3::after {
   gap: 40px;
   width: 438px;
   text-align: right;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.contacts__focus {
+  margin: 0;
+
+  font: var(--inter-bold-main);
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+
+.contacts__focus:first-child,
+.contacts__wrapper {
+  margin-bottom: 20px;
+}
+
+.contacts__wrapper,
+.contacts__list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact {
+  font: var(--inter-regular-main);
+  letter-spacing: 2px;
+  text-transform: capitalize
+}
+
+.contact > a {
+  color: #0C0C0E;
+}
+
+.bold-link {
+  font: var(--inter-bold-main);
+  letter-spacing: 2px;
 }
