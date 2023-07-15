@@ -18,6 +18,10 @@
   --inter-bold-small-normal: 700 10px/normal 'Inter', sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   padding: 0;
   margin: 0;
@@ -47,12 +51,20 @@ h2 {
 }
 
 h3 {
+  font: var(--forum-regular-big);
+  letter-spacing: 3px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+h4 {
   margin: 0;
   font: var(--forum-regular-small);
   letter-spacing: 2px;
 }
 
-h3::after {
+h4::after {
   content: "";
 
   display: block;
@@ -62,7 +74,7 @@ h3::after {
   background-color: #BB945F;
 }
 
-h4 {
+h5 {
   font: var(--inter-regular-big);
   letter-spacing: 0.6px;
 }
@@ -134,14 +146,6 @@ h4 {
   background-color: #0C0C0E;
 }
 
-.welcome__title {
-  font: var(--forum-regular-big);
-  letter-spacing: 3px;
-  text-align: center;
-  text-transform: uppercase;
-  color: #ffffff;
-}
-
 .line-after::after {
   content: "";
   display: block;
@@ -182,6 +186,52 @@ h4 {
 
 .slider__dot:first-child {
   background-color: #BB945F;
+}
+
+.form__title {
+  font: var(--inter-bold-main-normal);
+  margin-bottom: 40px;
+}
+
+.radio-box {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+
+  width: 27px;
+  height: 27px;
+  padding: 5px;
+  margin-right: 20px;
+
+  vertical-align: bottom;
+  cursor: pointer;
+}
+
+.radio::before {
+  content: "";
+  position: absolute;
+  top: 18%;
+  left: 18%;
+  display: block;
+  width: 7px;
+  height: 7px;
+  padding: 3px;
+
+  border: 2px solid #0C0C0E;
+  border-radius: 50%;
+}
+
+.radio:checked:before {
+  background-color: #0C0C0E;
+  background-clip: content-box;
+}
+
+.label {
+  padding: 5px 0;
+  margin-right: 90px;
+
+  font: var(--inter-regular-main-normal);
+  cursor: pointer;
 }
 
 .radio:checked + .label {
@@ -251,6 +301,7 @@ h4 {
   font: var(--inter-bold-small-normal);
   letter-spacing: 1px;
   text-align: center;
+  cursor: pointer;
 }
 
 .button:disabled {
@@ -402,17 +453,22 @@ h4 {
   font: var(--inter-bold-main-normal);
   letter-spacing: 1px;
   text-align: center;
+  cursor: pointer;
 }
 
 .form__input {
   width: 480px;
   height: 50px;
-  padding: 11px 20px 5px;
+  padding: 8px 20px;
   margin-bottom: 25px;
 
   background-color: #ffffff;
   border: 0;
   border-radius: 10px;
+
+  font: var(--forum-regular-second);
+  letter-spacing: 0.6px;
+  color: #BB945F;
 }
 
 .form__input::placeholder {
