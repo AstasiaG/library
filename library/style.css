@@ -112,8 +112,36 @@ h5 {
 }
 
 .nav__item {
+  position: relative;
   font: var(--inter-regular-second);
   letter-spacing: 0.03px;
+}
+
+.nav__item::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+
+  width: 0;
+  border-bottom: 2px solid #BB945F;
+  transition: 0.5s ease-in-out;
+}
+
+.nav__item:hover::after {
+  width: 100%;
+}
+
+.nav__item:hover > a,
+.bold-link:hover,
+a.bottom-side__text:hover {
+  color: #BB945F;
+  transition: 0.5s ease-in-out;
+}
+
+a:hover > svg {
+  fill: #BB945F;
+  transition: 0.5s ease-in-out;
 }
 
 .welcome {
@@ -250,8 +278,10 @@ h5 {
   cursor: pointer;
 }
 
-.radio:checked + .label {
+.radio:checked + .label,
+.contact__link:hover {
   font-weight: 700;
+  color: #0C0C0E;
 }
 
 .books {
@@ -320,8 +350,20 @@ h5 {
   cursor: pointer;
 }
 
+.button:hover,
+.form__button:hover {
+  background-color: #BB945F;
+  border: 1px solid #BB945F;
+  transition: all 0.4s ease-in-out;
+}
+
 .button:disabled {
   color: #BB945F;
+  border: 1px solid #BB945F;
+}
+
+.button:disabled:hover {
+  background-color: #ffffff;
   border: 1px solid #BB945F;
 }
 
@@ -425,13 +467,14 @@ h5 {
   text-transform: capitalize
 }
 
-.contact > a {
+.contact__link {
   color: #0C0C0E;
 }
 
 .bold-link {
   font: var(--inter-bold-main);
   letter-spacing: 2px;
+  color: #0C0C0E;
 }
 
 .card__content {
@@ -538,6 +581,7 @@ h5 {
 .footer__text {
   font: var(--inter-regular-small-second);
   color: #ffffff;
+  letter-spacing: normal;
 }
 
 .footer__list {
