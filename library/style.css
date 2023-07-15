@@ -28,6 +28,7 @@ body {
 }
 
 a {
+  line-height: 0;
   text-decoration: none;
   color: #ffffff;
 }
@@ -51,6 +52,7 @@ h2 {
 }
 
 h3 {
+  margin: 0;
   font: var(--forum-regular-big);
   letter-spacing: 3px;
   text-align: center;
@@ -75,6 +77,8 @@ h4::after {
 }
 
 h5 {
+  margin: 40px 0 30px;
+
   font: var(--inter-regular-big);
   letter-spacing: 0.6px;
 }
@@ -109,6 +113,7 @@ h5 {
 
 .nav__item {
   font: var(--inter-regular-second);
+  letter-spacing: 0.03px;
 }
 
 .welcome {
@@ -165,7 +170,7 @@ h5 {
 .slider {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 40px;
+  margin-bottom: 35px;
 }
 
 .slider__nav,
@@ -173,11 +178,17 @@ h5 {
   text-align: center;
 }
 
+.slider__nav {
+  margin-bottom: -10px;
+}
+
 .slider__dot {
   display: inline-block;
   width: 16px;
   height: 16px;
   padding: 5px;
+  margin-left: -2px;
+  margin-right: -2px;
 
   background-color: #0C0C0E;
   background-clip: content-box;
@@ -191,6 +202,7 @@ h5 {
 .form__title {
   font: var(--inter-bold-main-normal);
   margin-bottom: 40px;
+  margin-top: 41px;
 }
 
 .radio-box {
@@ -201,10 +213,14 @@ h5 {
   width: 27px;
   height: 27px;
   padding: 5px;
-  margin-right: 20px;
+  margin: 0 15px 0 0;
 
-  vertical-align: bottom;
+  vertical-align: top;
   cursor: pointer;
+}
+
+.marg {
+  margin-left: -5px;
 }
 
 .radio::before {
@@ -228,7 +244,7 @@ h5 {
 
 .label {
   padding: 5px 0;
-  margin-right: 90px;
+  margin-right: 82px;
 
   font: var(--inter-regular-main-normal);
   cursor: pointer;
@@ -243,7 +259,7 @@ h5 {
   flex-wrap: wrap;
   justify-content: space-between;
   padding-right: 40px;
-  margin-top: 40px;
+  margin-top: 37px;
   gap: 40px;
 }
 
@@ -253,9 +269,9 @@ h5 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 508px;
-  height: 523px;
-  padding: 15px 20px;
+  width: 510px;
+  height: 525px;
+  padding: 14px 19px;
 
   border: 1px solid #0C0C0E;
   text-align: left;
@@ -274,7 +290,7 @@ h5 {
 }
 
 .book__description {
-  width: 355px;
+  width: 359px;
 
   font: var(--inter-regular-small);
   letter-spacing: 2px;
@@ -291,8 +307,8 @@ h5 {
 }
 
 .button {
-  width: 73px;
-  height: 28px;
+  width: 75px;
+  height: 30px;
 
   background-color: #ffffff;
   border: 1px solid #0C0C0E;
@@ -325,7 +341,7 @@ h5 {
   display: flex;
   flex-direction: column;
   gap: 40px;
-  width: 438px;
+  width: 439px;
   text-align: left;
 }
 
@@ -341,6 +357,10 @@ h5 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.price__item {
+  gap: 59px;
 }
 
 .price-name {
@@ -367,8 +387,9 @@ h5 {
 .cakes {
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
   gap: 40px;
-  width: 438px;
+  width: 467px;
   text-align: right;
 }
 
@@ -420,7 +441,7 @@ h5 {
 
 .card {
   width: 560px;
-  padding: 20px 20px 30px;
+  padding: 17px 17px 27px;
 
   border: 3px solid #BB945F;
 }
@@ -428,7 +449,7 @@ h5 {
 .form__inputs {
   width: 520px;
   padding: 20px 20px 0;
-  
+
   background-color: #BB945F;
 }
 
@@ -483,6 +504,7 @@ h5 {
 }
 
 .get-card__title {
+  display: block;
   margin-bottom: 35px;
 
   font: var(--forum-regular-second-normal);
@@ -534,13 +556,17 @@ h5 {
 
 .bottom-side {
   position: relative;
-  padding: 44px 0;
+  padding: 46px 0;
 }
 
 .bottom-side__text {
   font: var(--inter-regular-main-second);
   letter-spacing: 2px;
   color: #ffffff;
+}
+
+.bottom-side__text:nth-child(2) {
+  margin-left: 154px;
 }
 
 .bottom-side::before {
