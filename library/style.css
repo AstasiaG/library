@@ -236,6 +236,7 @@ a:hover > svg {
 .radio-box {
   -webkit-appearance: none;
   -moz-appearance: none;
+  appearance: none;
   position: relative;
 
   width: 27px;
@@ -282,6 +283,12 @@ a:hover > svg {
 .contact__link:hover {
   font-weight: 700;
   color: #0C0C0E;
+}
+
+div.spring,
+div.summer,
+div.autumn {
+  display: none;
 }
 
 .books {
