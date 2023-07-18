@@ -96,6 +96,9 @@ h5 {
 .page-header {
   display: flex;
   justify-content: space-between;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 20px;
 
   background-color: #0C0C0E;
 }
@@ -147,10 +150,12 @@ a:hover > svg {
 .welcome {
   position: relative;
 
-  width: 1440px;
+  width: 100%;
   padding: 220px 0 160px;
 
   background-image: url(./images/Welcome.png);
+  background-size: cover;
+  background-repeat: no-repeat;
   background-position: center center;
 }
 
@@ -494,6 +499,7 @@ div.autumn {
   padding: 17px 17px 27px;
 
   border: 3px solid #BB945F;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .form__inputs {
@@ -575,6 +581,9 @@ div.autumn {
 }
 
 .page-footer {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 20px;
   background-color: #0C0C0E;
 }
 
