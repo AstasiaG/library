@@ -94,13 +94,14 @@ h5 {
 }
 
 .page-header {
-  display: flex;
-  justify-content: space-between;
-  box-sizing: border-box;
   width: 100%;
-  padding: 0 20px;
 
   background-color: #0C0C0E;
+}
+
+.header__content {
+  display: flex;
+  justify-content: space-between;
 }
 
 .left__side {
@@ -180,6 +181,7 @@ a:hover > svg {
   justify-content: center;
   width: 520px;
   padding: 35px 40px;
+  margin-left: -20px;
 
   background-color: #0C0C0E;
 }
@@ -234,8 +236,19 @@ a:hover > svg {
 
 .form__title {
   font: var(--inter-bold-main-normal);
-  margin-bottom: 40px;
+  margin-bottom: 35px;
   margin-top: 41px;
+}
+
+.seasons__radio {
+  display: inline-flex;
+  width: 130px;
+  margin-right: 55px;
+  align-items: center;
+}
+
+.seasons__radio:last-child {
+  margin-left: 17px;
 }
 
 .radio-box {
@@ -245,11 +258,10 @@ a:hover > svg {
   position: relative;
 
   width: 27px;
-  height: 27px;
+  height: 24px;
   padding: 5px;
-  margin: 0 15px 0 0;
+  margin: 0;
 
-  vertical-align: top;
   cursor: pointer;
 }
 
@@ -277,8 +289,7 @@ a:hover > svg {
 }
 
 .label {
-  padding: 5px 0;
-  margin-right: 82px;
+  padding: 5px 5px 5px 15px;
 
   font: var(--inter-regular-main-normal);
   cursor: pointer;
@@ -301,7 +312,7 @@ div.autumn {
   flex-wrap: wrap;
   justify-content: space-between;
   padding-right: 40px;
-  margin-top: 37px;
+  margin-top: 35px;
   gap: 40px;
 }
 
@@ -583,7 +594,6 @@ div.autumn {
 .page-footer {
   box-sizing: border-box;
   width: 100%;
-  padding: 0 20px;
   background-color: #0C0C0E;
 }
 
