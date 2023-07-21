@@ -230,7 +230,7 @@ a:hover > svg {
   border-radius: 50px;
 }
 
-.lider-nav__dot:first-child {
+.active {
   background-color: #BB945F;
 }
 
