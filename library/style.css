@@ -121,7 +121,7 @@ h5 {
   letter-spacing: 0.03px;
 }
 
-.nav__item::after {
+.list__item::after {
   content: "";
   position: absolute;
   bottom: 2px;
@@ -132,11 +132,11 @@ h5 {
   transition: 0.5s ease-in-out;
 }
 
-.nav__item:hover::after {
+.list__item:hover::after {
   width: 100%;
 }
 
-.nav__item:hover > a,
+.list__item:hover > a,
 .bold-link:hover,
 a.bottom-side__text:hover {
   color: #BB945F;
@@ -374,7 +374,7 @@ div.autumn {
 }
 
 .button:hover,
-.form__button:hover {
+.card-form__button:hover {
   background-color: #BB945F;
   border: 1px solid #BB945F;
   transition: all 0.4s ease-in-out;
