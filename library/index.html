@@ -9,7 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Forum&family=Inter:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./css/style.css" media="screen and (min-width: 1440px)">
+  <link rel="stylesheet" href="./css/tablet.css" media="screen and (max-width: 1439px) and (min-width: 768px)">
 </head>
 
 <body>
@@ -18,7 +19,7 @@
     <div class="container page-header__content">
       <h1>Brooklyn Public Library</h1>
       <div class="page-header__left-side">
-        <nav>
+        <nav class="hidden">
           <ul class="list">
             <li class="list__item">
               <a href="#about">About</a>
@@ -62,8 +63,8 @@
       <!--Slider-->
       <div class="slider">
         <img src="./images/slider_1.jpg" alt="" class="slider__image">
-        <img src="./images/slider_2.jpg" alt="" class="slider__image">
-        <img src="./images/slider_3.jpg" alt="" class="slider__image">
+        <img src="./images/slider_2.jpg" alt="" class="slider__image hidden">
+        <img src="./images/slider_3.jpg" alt="" class="slider__image hidden">
       </div>
       <div class="slider-nav">
         <a class="slider-nav__dot active" href="#0"></a>
