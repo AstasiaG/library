@@ -154,7 +154,7 @@ a:hover > svg {
   width: 100%;
   padding: 220px 0 160px;
 
-  background-image: url(./images/Welcome.png);
+  background-image: url(../images/Welcome.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
