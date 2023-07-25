@@ -383,6 +383,7 @@ div.autumn {
 .button:disabled {
   color: #BB945F;
   border: 1px solid #BB945F;
+  cursor: default;
 }
 
 .button:disabled:hover {
@@ -594,6 +595,7 @@ div.autumn {
 .page-footer {
   box-sizing: border-box;
   width: 100%;
+  margin-top: 1px;
   background-color: #0C0C0E;
 }
 
@@ -636,7 +638,7 @@ div.autumn {
 }
 
 .bottom-side__text:nth-child(2) {
-  margin-left: 154px;
+  margin-left: 55px;
 }
 
 .bottom-side::before {
