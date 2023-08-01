@@ -90,12 +90,10 @@ h5 {
 }
 
 .section {
-  padding: 20px 0 40px;
+  padding: 20px 20px 40px;
 }
 
 .page-header {
-  width: 100%;
-
   background-color: #0C0C0E;
 }
 
@@ -151,8 +149,9 @@ a:hover > svg {
 .welcome {
   position: relative;
 
-  width: 100%;
+  width: 1440px;
   padding: 220px 0 160px;
+  margin: 0 auto;
 
   background-image: url(../images/Welcome.png);
   background-size: cover;
@@ -181,7 +180,6 @@ a:hover > svg {
   justify-content: center;
   width: 520px;
   padding: 35px 40px;
-  margin-left: -20px;
 
   background-color: #0C0C0E;
 }
@@ -353,7 +351,7 @@ div.autumn {
 .book__cover {
   position: absolute;
   bottom: -1px;
-  right: -40px;
+  right: -41px;
 
   display: block;
   width: 200px;
@@ -383,6 +381,7 @@ div.autumn {
 .button:disabled {
   color: #BB945F;
   border: 1px solid #BB945F;
+  cursor: default;
 }
 
 .button:disabled:hover {
@@ -593,7 +592,8 @@ div.autumn {
 
 .page-footer {
   box-sizing: border-box;
-  width: 100%;
+  width: 1440px;
+  margin-top: 1px;
   background-color: #0C0C0E;
 }
 
@@ -636,7 +636,7 @@ div.autumn {
 }
 
 .bottom-side__text:nth-child(2) {
-  margin-left: 154px;
+  margin-left: 55px;
 }
 
 .bottom-side::before {
