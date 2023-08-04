@@ -146,6 +146,10 @@ a:hover > svg {
   transition: 0.5s ease-in-out;
 }
 
+.burger-menu {
+  display: none;
+}
+
 .welcome {
   position: relative;
 
@@ -226,6 +230,16 @@ a:hover > svg {
   background-color: #0C0C0E;
   background-clip: content-box;
   border-radius: 50px;
+}
+
+.slider-nav__dot:nth-child(2n) {
+  display: none;
+}
+
+.slider__arrow {
+  display: none;
+  width: 24px;
+  fill: #0C0C0E;
 }
 
 .active {
