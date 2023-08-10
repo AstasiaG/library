@@ -124,7 +124,13 @@ h5 {
   padding: 10px 0 100px;
 
   background-color: #0C0C0E;
-  display: none;
+  transform: scaleY(0);
+  transform-origin: 0 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.transform {
+  transform: scaleY(1);
 }
 
 .list__item {
@@ -161,17 +167,37 @@ a:hover > svg {
 }
 
 .burger-menu {
+  position: relative;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
   height: 20px;
 }
 
 .burger-menu__line {
+  display: block;
   width: 45px;
   height: 2px;
 
   background-color: #ffffff;
+}
+
+.burger-menu__line::after,
+.burger-menu__line::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 45px;
+  height: 2px;
+
+  background-color: #ffffff;
+}
+
+.burger-menu__line::after {
+  bottom: 0;
+}
+
+.burger-menu__line::before {
+  top: 0;
 }
 
 .welcome {
