@@ -133,10 +133,17 @@ h5 {
   transform: scaleY(1);
 }
 
-.list__item {
+.list__item > a{
   position: relative;
   font: var(--inter-regular-second);
   letter-spacing: 0.03px;
+  color: #0C0C0E;
+  transition: 0.3s ease-in-out;
+}
+
+.list__item-active > a{
+  color: #ffffff;
+  transition: 0.3s ease-in-out;
 }
 
 .list__item::after {
@@ -179,25 +186,44 @@ a:hover > svg {
   height: 2px;
 
   background-color: #ffffff;
+  transition: 0.3s ease-in-out;
 }
 
-.burger-menu__line::after,
-.burger-menu__line::before {
+.burger-menu__active > .burger-menu__line {
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+}
+
+.burger-menu::after,
+.burger-menu::before {
   content: "";
   position: absolute;
-  left: 0;
   width: 45px;
   height: 2px;
 
   background-color: #ffffff;
+  transition: 0.3s ease-in-out;
 }
 
-.burger-menu__line::after {
+.burger-menu::after {
+  transition: 0.3s ease-in-out;
   bottom: 0;
 }
 
-.burger-menu__line::before {
+.burger-menu::before {
+  transition: 0.3s ease-in-out;
   top: 0;
+}
+
+.burger-menu__active::after {
+  bottom: 45%;
+  transform: rotate(45deg);
+  transition: 0.3s ease-in-out;
+}
+.burger-menu__active::before {
+  top: 45%;
+  transform: rotate(-45deg);
+  transition: 0.3s ease-in-out;
 }
 
 .welcome {
