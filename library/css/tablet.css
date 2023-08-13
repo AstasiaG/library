@@ -83,6 +83,12 @@ h5 {
   letter-spacing: 0.6px;
 }
 
+.body__wrapper {
+  position: relative;
+  overflow-x: hidden;
+  width: 100%;
+}
+
 .container {
   max-width: 1400px;
   min-width: 600px;
@@ -114,7 +120,7 @@ h5 {
   position: absolute;
   z-index: 3;
   top: 90px;
-  right: 0;
+  right: -350px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -124,13 +130,11 @@ h5 {
   padding: 10px 0 100px;
 
   background-color: #0C0C0E;
-  transform: scaleY(0);
-  transform-origin: 0 0;
   transition: all 0.5s ease-in-out;
 }
 
-.transform {
-  transform: scaleY(1);
+.list-active {
+  right: 0;
 }
 
 .list__item > a{
@@ -176,6 +180,7 @@ a:hover > svg {
 .burger-menu {
   position: relative;
   display: flex;
+  justify-content: flex-end;
   align-items: center;
   height: 20px;
 }
@@ -216,11 +221,13 @@ a:hover > svg {
 }
 
 .burger-menu__active::after {
+  margin: 0 -6px;
   bottom: 45%;
   transform: rotate(45deg);
   transition: 0.3s ease-in-out;
 }
 .burger-menu__active::before {
+  margin: 0 -6px;
   top: 45%;
   transform: rotate(-45deg);
   transition: 0.3s ease-in-out;
@@ -280,13 +287,21 @@ a:hover > svg {
   text-align: center;
 }
 
-.slider {
-  overflow: hidden;
-  width: 620px;
+.slider__wrap {
   display: flex;
-  justify-content: center;
+  margin: 0 auto;
   align-items: center;
-  margin: 0 auto 20px;
+  justify-content: center;
+}
+
+.slider {
+  width: 566px;
+  display: flex;
+  margin-bottom:20px;
+}
+
+.hidden {
+  visibility: hidden;
 }
 
 .slider-nav,
@@ -316,7 +331,7 @@ a:hover > svg {
 }
 
 .slider__arrow {
-  margin-top: 41px;
+  margin-top: 21px;
   width: 24px;
 }
 
@@ -752,5 +767,11 @@ div.autumn {
 @media screen and (min-width: 768px){
   .shop-description {
     min-width: 729px;
+  }
+}
+
+@media screen and (max-width: 767px){
+  .book-form__radio {
+    margin-right: 17px;
   }
 }
