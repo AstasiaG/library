@@ -1,1 +1,32 @@
-console.log("Самопроверка(100 / 100):\nВёрстка валидная(+10)Нет предупреждений и ошибок\nВёрстка семантическая(+16):\n  1.Есть <header>, <main>, <footer> (+2)\n  2.Шесть элементов <section> (+2)\n  3.Только один заголовок <h1> (+2)\n  4.Семь заголовков <h2> (+2)\n  5.Один элемент <nav> (+2)\n  6.Два списка ul > li > a (+2)\n  7.19 кнопок <button> (повторы в секции favorites) (+2)\n  8.Шесть инпутов(4 радиокнопки) <input> (+2)\nВёрстка соответствует макету (+54):\n  1.блок <header> (+8)\n  2.Секция Welcome (+4)\n  3.Секция About (+6)\n  4.Секция Favorites (+8)\n  5.Секция CoffeShop (+6)\n  6.Секция Contacts (+6)\n  7.Секция LibraryCard (+8)\n  8.Блок <footer> (+8)\nОбщие требования к верстке (+20)");
+const menu = document.querySelector('ul.list');
+const burger = document.querySelector('a.burger-menu');
+const menuItems = document.querySelectorAll('li.list__item')
+
+burger.addEventListener('click', () => {
+  burger.classList.toggle('burger-menu__active');
+  menu.classList.toggle('list-active');
+  menuItems.forEach(e => {
+    e.classList.toggle('list__item-active')
+  });
+})
+
+menuItems.forEach(e => {
+  e.addEventListener('click', (e) => {
+    menu.classList.remove('list-active');
+    burger.classList.remove('burger-menu__active');
+    e.classList.remove('list__item-active')
+  })
+})
+
+document.addEventListener('click', (el) => {
+  const notMenu = el.composedPath().includes(burger);
+  if(!notMenu) {
+    menu.classList.remove('list-active');
+    burger.classList.remove('burger-menu__active');
+    menuItems.forEach(e => {
+      e.classList.remove('list__item-active')
+    });
+  }
+})
+
+console.log("Самопроверка( 50/50 ):\n  1.Вёрстка соответствует макету. Ширина экрана 768px\n  2.Ни на одном из разрешений до 640px включительно не появляется горизонтальная полоса прокрутки. Весь контент страницы при этом сохраняется: не обрезается и не удаляется\n  3.На ширине экрана 768рх реализовано адаптивное меню");
