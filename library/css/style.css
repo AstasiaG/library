@@ -84,7 +84,7 @@ h5 {
 }
 
 .container {
-  width: 1400px;
+  max-width: 1400px;
   padding: 0 20px;
   margin: 0 auto;
 }
@@ -153,7 +153,7 @@ a:hover > svg {
 .welcome {
   position: relative;
 
-  width: 1440px;
+  max-width: 1440px;
   padding: 220px 0 160px;
   margin: 0 auto;
 
@@ -208,6 +208,12 @@ a:hover > svg {
   display: flex;
   justify-content: space-between;
   margin-bottom: 35px;
+  overflow: hidden;
+}
+
+.slider__image {
+  max-width: 450px;
+  margin-right: 25px;
 }
 
 .slider-nav,
@@ -606,7 +612,7 @@ div.autumn {
 
 .page-footer {
   box-sizing: border-box;
-  width: 1440px;
+  max-width: 1440px;
   margin-top: 1px;
   background-color: #0C0C0E;
 }
@@ -663,4 +669,10 @@ div.autumn {
   height: 1px;
 
   background-color: #ffffff;
+}
+
+@media screen and (max-width: 1220px){
+  .books {
+    justify-content: center;
+  }
 }
