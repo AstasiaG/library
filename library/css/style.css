@@ -111,6 +111,7 @@ h5 {
 .list {
   display: flex;
   gap: 30px;
+  padding: 0;
 }
 
 .list__item {
@@ -212,8 +213,14 @@ a:hover > svg {
 }
 
 .slider__image {
-  max-width: 450px;
-  margin-right: 25px;
+  width: 450px;
+  padding-right: 25px;
+  transform: translate(0);
+  transition: all 0.3s ease-in-out;
+}
+
+.slider__image:last-child {
+  padding-right: 0;
 }
 
 .slider-nav,
@@ -238,7 +245,7 @@ a:hover > svg {
   border-radius: 50px;
 }
 
-.slider-nav__dot:nth-child(2n) {
+.slider-nav__dot:nth-last-child(-n + 2) {
   display: none;
 }
 
