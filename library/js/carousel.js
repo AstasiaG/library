@@ -3,22 +3,19 @@ const sliderDot = document.getElementsByClassName('slider-nav__dot');
 const arrRight = document.getElementById('right');
 const arrLeft = document.getElementById('left');
 const dots = Array.from(sliderDot);
-let itemWidth = sliderItem[0].offsetWidth;
 
 window.addEventListener(`resize`, event => {
   const windowInnerWidth = document.documentElement.clientWidth;
 
-  if(windowInnerWidth > 1023) {
     dots.forEach(e => e.className = 'slider-nav__dot');
     dots[0].className = 'slider-nav__dot active';
-    console.log(itemWidth);
 
-    sliderItem.forEach((el) => el.style.transform = `translate(0)`);
-  }
+    sliderItem.forEach((el) => el.style.transform = 'translate(0)');
+
 }, false);
 
 function DotsSwiper() {
-
+  let itemWidth = sliderItem[0].offsetWidth;
   if(this.className.includes('active')) {
     return;
   } else {
@@ -31,6 +28,7 @@ function DotsSwiper() {
 }
 
 function Left() {
+  let itemWidth = sliderItem[0].offsetWidth;
   let item = dots.findIndex((e) => e.className.includes('active'));
 
   if(dots[0].className.includes('active')) {
@@ -45,6 +43,7 @@ function Left() {
 }
 
 function Right() {
+  let itemWidth = sliderItem[0].offsetWidth;
   let item = dots.findIndex((e) => e.className.includes('active'));
 
   if(dots[4].className.includes('active')) {
