@@ -353,7 +353,7 @@ a:hover > svg {
   gap: 40px;
   opacity: 1;
 
-  transition: 0.8s ease-in-out;
+  transition: all 0.8s ease-in-out;
 }
 
 .fade {
@@ -373,7 +373,6 @@ a:hover > svg {
 
   border: 1px solid #0C0C0E;
   text-align: left;
-  transition: 0.8s ease-in-out;
 }
 
 .book__name {
@@ -644,14 +643,17 @@ a:hover > svg {
   z-index: 5;
   top: 75px;
   right: 15px;
-  display: flex;
-  flex-direction: column;
 
   width: 60px;
   padding: 5px 10px 20px;
 
-  align-items: center;
   background-color: #ffffff;
+}
+
+.account__menu-elem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .account__menu-header {
@@ -685,8 +687,23 @@ a:hover > svg {
   margin-bottom: 0px;
 }
 
+.account__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 28px;
+  height: 28px;
+
+  border-radius: 50%;
+  background-color: #ffffff;
+  color: #BB945F;
+  font: var(--inter-regular-small-second);
+  text-transform: uppercase;
+}
+
 .modal__wrapper {
-  position: sticky;
+  position: fixed;
+  z-index: 15;
   display: flex;
   justify-content: center;
   align-items: center;

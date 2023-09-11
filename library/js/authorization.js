@@ -1,53 +1,42 @@
-const userIcon = document.getElementById('profile_icon');
-const userMenu = document.getElementById('user_menu');
-const loginBtn = Array.from(document.getElementsByName('first'));
-const registerBtn = Array.from(document.getElementsByName('second'));
-const wrapper = document.getElementById('wrapper');
-const login = document.getElementById('login');
-const register = document.getElementById('register');
-const profile = document.getElementById('profile');
-const buyBook = document.getElementById('buy-book');
-const close = Array.from(document.querySelectorAll('a.close-icon'));
+const btnRegister = document.getElementById('registerBtn');
+const btnLogin = document.getElementById('loginBtn');
+const wrap = document.getElementById('wrapper');
+import {CheckUser} from '../index.js';
 
-userIcon.addEventListener('click', () => {
-  userMenu.classList.toggle('none');
+btnRegister.addEventListener('click', function (event){
+  event.preventDefault();
+
+  const firstName = document.getElementById('fName');
+  const lastName = document.getElementById('lName');
+  const email = document.getElementById('emailReg');
+  const password = document.getElementById('passwordReg');
+  const number = Math.trunc(Math.random()*1e10).toString(16);
+
+  const user = {
+    firstName: firstName.value,
+    lastName: lastName.value,
+    email: email.value,
+    password: password.value,
+    condition: true,
+    visits: 1,
+    cardNumber: number,
+    books: [],
+  };
+
+  window.localStorage.setItem('user', JSON.stringify(user));
+  wrap.classList.add('none');
+  CheckUser();
 })
 
-loginBtn.forEach(e => {
-  e.addEventListener('click', () => {
-    wrapper.classList.remove('none');
-    login.classList.remove('none');
-    userMenu.classList.add('none');
-    if(!(register.className.includes('none'))) {
-      register.classList.add('none');
-    }
-  })
-});
+btnLogin.addEventListener('click', function (event){
+  event.preventDefault();
+  const password = document.getElementById('passwordLog').value;
+  const login = document.getElementById('login').value;
+  const userPrev = JSON.parse(localStorage.getItem('user'));
 
-registerBtn.forEach(e => {
-  e.addEventListener('click', () => {
-    wrapper.classList.remove('none');
-    register.classList.remove('none');
-    userMenu.classList.add('none');
-    if(!(login.className.includes('none'))) {
-      login.classList.add('none');
-    }
-  })
-});
-
-close.forEach(e => {
-  e.addEventListener('click', () => {
-    wrapper.classList.add('none');
-  })
-});
-
-/*wrapper.addEventListener('click', () => {
-
-  if (!(login.className.includes('none'))) {
-    wrapper.classList.add('none');
-    login.classList.add('none');
-  } else if (!(register.className.includes('none'))) {
-    wrapper.classList.add('none');
-    register.classList.add('none');
+  if(password === userPrev.password && login === userPrev.email || password === userPrev.password && login === userPrev.cardNumber) {
+    wrap.classList.add('none');
+    CheckUser();
   }
-})*/
+
+});

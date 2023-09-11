@@ -91,6 +91,7 @@ h6 {
   letter-spacing: 0.4px;
   text-transform: uppercase;
   color: #000000;
+  margin: 0;
 }
 
 .body__wrapper {
@@ -716,7 +717,7 @@ a:hover > svg {
   position: absolute;
   z-index: 5;
   top: 75px;
-  right: 15px;
+  right: 80px;
   display: flex;
   flex-direction: column;
 
@@ -759,7 +760,8 @@ a:hover > svg {
 }
 
 .modal__wrapper {
-  position: absolute;
+  position: fixed;
+  z-index: 15;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -978,6 +980,7 @@ margin-left: 10px;
 }
 
 .white {
+  line-height: 20px;
   color: #ffffff;
 }
 
@@ -1015,10 +1018,12 @@ margin-left: 10px;
   font: var(--inter-bold-main-normal);
   line-height: 20px;
   letter-spacing: 2px;
+  vertical-align: bottom;
 }
 
 .modal__book-description {
   width: 330px;
+  margin: 0;
   font: var(--inter-regular-small-second);
   letter-spacing: 2px;
   color: #8E8E8E;

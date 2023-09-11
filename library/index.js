@@ -3,8 +3,37 @@ const burger = document.querySelector('a.burger-menu');
 const menuItems = document.querySelectorAll('li.list__item')
 const inp = document.getElementsByName('seasons');
 const books = Array.from(document.querySelectorAll('div.books'));
+const userMenu = document.getElementById('user_menu');
+const usMenuNone = document.getElementById('nonAuthProf');
+const usMenuAuth = document.getElementById('authProf');
+const userIcon = document.getElementById('profile_icon');
+const loginBtn = Array.from(document.getElementsByName('first'));
+const registerBtn = Array.from(document.getElementsByName('second'));
+const profileBtn = Array.from(document.getElementsByName('profile'));
+const wrapper = document.getElementById('wrapper');
+const login = document.getElementById('login');
+const register = document.getElementById('register');
+const profile = document.getElementById('profile');
+const buyBook = document.getElementById('buy-book');
+const close = Array.from(document.querySelectorAll('a.close-icon'));
+const getCardAuth = document.getElementById('auth');
+const getCardNon = document.getElementById('nonAuth');
+const buyBtn = Array.from(document.querySelectorAll('button.buy'));
+const userAct = JSON.parse(localStorage.getItem('user'));
+
+CheckUser();
+
+profileBtn.forEach((e) => {
+  e.addEventListener('click', () => {
+    wrapper.classList.remove('none');
+    profile.classList.remove('none');
+  })
+});
 
 burger.addEventListener('click', () => {
+  if (!(userMenu.className.includes('none'))) {
+    userMenu.classList.add('none');
+  }
   burger.classList.toggle('burger-menu__active');
   menu.classList.toggle('list-active');
   menuItems.forEach(e => {
@@ -12,9 +41,13 @@ burger.addEventListener('click', () => {
   });
 })
 
-/*userIcon.addEventListener('click', () => {
+userIcon.addEventListener('click', () => {
   userMenu.classList.toggle('none');
-})*/
+  if(burger.className.includes('burger-menu__active')) {
+    burger.classList.remove('burger-menu__active')
+    userMenu.classList.remove('none')
+  }
+})
 
 menuItems.forEach(e => {
   e.addEventListener('click', (e) => {
@@ -26,6 +59,10 @@ menuItems.forEach(e => {
 
 document.addEventListener('click', (el) => {
   const notMenu = el.composedPath().includes(burger);
+  const usMenu = el.composedPath().includes(userMenu);
+  const usIcon = el.composedPath().includes(userIcon);
+  const prof = el.composedPath().includes(profile);
+  const buy = el.composedPath().includes(buyBook);
   if(!notMenu) {
     menu.classList.remove('list-active');
     burger.classList.remove('burger-menu__active');
@@ -33,44 +70,103 @@ document.addEventListener('click', (el) => {
       e.classList.remove('list__item-active')
     });
   }
+  /*if(!usMenu || !usIcon) {
+    userMenu.classList.add('none');
+  }*/
 })
+
+loginBtn.forEach(e => {
+  e.addEventListener('click', () => {
+    wrapper.classList.remove('none');
+    login.classList.remove('none');
+    userMenu.classList.add('none');
+    if(!(register.className.includes('none'))) {
+      register.classList.add('none');
+    }
+  })
+});
+
+registerBtn.forEach(e => {
+  e.addEventListener('click', () => {
+    wrapper.classList.remove('none');
+    register.classList.remove('none');
+    userMenu.classList.add('none');
+    if(!(login.className.includes('none'))) {
+      login.classList.add('none');
+    }
+  })
+});
+
+close.forEach(e => {
+  e.addEventListener('click', () => {
+    wrapper.classList.add('none');
+    const a = e.closest('div.modal');
+    a.classList.add('none');
+  })
+});
 
 function BooksSlider() {
   books.find(element => {
-    if(element.className.includes(this.value)){
-      element.classList.remove('none');
-      element.classList.remove('fade');
-      //element.classList.remove('none');
-    }
-
     if(!(element.className.includes(this.value))) {
       element.classList.add('fade');
+
+      if(element.className.includes('fade')) {
+        setTimeout(function() {
+          element.classList.add('none');
+        },800);
+      }
+      //element.classList.add('fade');
+
+    }
+
+  });
+
+  books.find(element => {
+    if(element.className.includes(this.value)){
+      setTimeout(function() {
+        element.classList.remove('none');
+        if(!element.className.includes('none')) {
+          setTimeout(function() {
+            element.classList.remove('fade');
+          },500);
+        }
+      },500);
     }
   });
- // book.classList.remove('fade');
-
- /*books.find(element => {
-  if(!(element.className.includes(this.value))) {
-    element.classList.add('fade');
-    setTimeout(function () {
-      element.classList.add('fade');
-    }, 30);
-  }
-});*/
-
 }
 
 inp.forEach((e) => e.addEventListener('click', BooksSlider));
-books.forEach((e) => e.addEventListener('transitionend', function() {
-  books.find(el => {
-    if(el.className.includes('fade')) {
-      el.classList.add('none');
-    } else if(!(el.className.includes('none'))) {
-      el.classList.remove('fade');
-    }
-  })
-})
 
-);
+export function CheckUser () {
+  if(userAct !== null) {
+    if(userAct.condition === true) {
+      getCardNon.classList.add('none');
+      getCardAuth.classList.remove('none');
+    
+      userIcon.innerText = `${userAct.firstName[0]}${userAct.lastName[0]}`;
+      userIcon.classList.add('account__icon');
+    
+      usMenuNone.classList.add('none');
+      usMenuAuth.classList.remove('none');
+    }
+  }
+}
+
+buyBtn.forEach((u) => {
+  u.addEventListener('click', () => {
+    if(userAct.condition === false || userAct == null) {
+      wrapper.classList.remove('none');
+      login.classList.remove('none');
+    } else {
+      wrapper.classList.remove('none');
+      buyBook.classList.remove('none');
+    }
+  });
+
+  if (userAct.condition === false || userAct == null) {
+    u.innerText = 'Buy';
+  };
+});
+
 
 console.log("Самопроверка( 50/50 ):\n  1.Вёрстка соответствует макету. Ширина экрана 768px\n  2.Ни на одном из разрешений до 640px включительно не появляется горизонтальная полоса прокрутки. Весь контент страницы при этом сохраняется: не обрезается и не удаляется\n  3.На ширине экрана 768рх реализовано адаптивное меню");
