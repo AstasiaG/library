@@ -710,7 +710,7 @@ a:hover > svg {
   top: 0;
   left: 0;
   width: 100%;
-  height: calc(100vh - 90.19px);
+  height: 100vh;
   margin: 0;
   padding: 0;
 }
@@ -918,7 +918,7 @@ margin-left: 10px;
 }
 
 .modal__book {
-  width: 650px;
+  width: 640px;
 }
 
 .white {

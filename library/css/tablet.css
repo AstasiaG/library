@@ -728,6 +728,26 @@ a:hover > svg {
   background-color: #ffffff;
 }
 
+.account__menu-elem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.account__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 28px;
+  height: 28px;
+
+  border-radius: 50%;
+  background-color: #ffffff;
+  color: #BB945F;
+  font: var(--inter-regular-small-second);
+  text-transform: uppercase;
+}
+
 .account__menu-header {
   position: relative;
   margin-bottom: 20px;
@@ -976,7 +996,7 @@ margin-left: 10px;
 }
 
 .modal__book {
-  width: 650px;
+  width: 640px;
 }
 
 .white {

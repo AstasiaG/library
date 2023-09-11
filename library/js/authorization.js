@@ -19,24 +19,31 @@ btnRegister.addEventListener('click', function (event){
     password: password.value,
     condition: true,
     visits: 1,
-    cardNumber: number,
+    cardNumber: number.toUpperCase(),
     books: [],
   };
 
-  window.localStorage.setItem('user', JSON.stringify(user));
+  localStorage.setItem('user', JSON.stringify(user));
   wrap.classList.add('none');
   CheckUser();
+  location.reload();
 })
 
 btnLogin.addEventListener('click', function (event){
   event.preventDefault();
-  const password = document.getElementById('passwordLog').value;
-  const login = document.getElementById('login').value;
+  
+  const passwordLog = document.getElementById('passwordLog').value;
+  const login = document.getElementById('loginName').value;
   const userPrev = JSON.parse(localStorage.getItem('user'));
 
-  if(password === userPrev.password && login === userPrev.email || password === userPrev.password && login === userPrev.cardNumber) {
+  if(passwordLog === userPrev.password && login === userPrev.email || passwordLog === userPrev.password && login === userPrev.cardNumber) {
     wrap.classList.add('none');
+    userPrev.condition = true;
+    userPrev.visits += 1;
+    window.localStorage.setItem('user', JSON.stringify(userPrev));
     CheckUser();
+    location.reload();
   }
 
 });
+

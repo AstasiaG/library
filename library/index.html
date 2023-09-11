@@ -60,7 +60,7 @@
         <div class="account__menu-elem none" id="authProf">
           <span class="account__menu-header">Profile</span>
           <a class="account__menu-link" href="#0" name="profile">Profile</a>
-          <a class="account__menu-link" href="#0" name="logout">Log Out</a>
+          <a class="account__menu-link" href="#0" id="logout">Log Out</a>
         </div>
       </div>
     </header>
@@ -468,13 +468,13 @@
               <div class="card-form__inputs">
                 <span class="card-form__inputs__title">Brooklyn Public Library</span>
                 <label class="hint">
-                  <input class="card-form__input" type="text" placeholder="Reader's name" pattern="[a-z-]" required>
+                  <input class="card-form__input" type="text" id="CardName" placeholder="Reader's name" pattern="[a-z-]" required>
                 </label>
                 <label class="hint">
-                  <input class="card-form__input" type="text" placeholder="Card number" pattern="[a-z0-9-]" required>
+                  <input class="card-form__input" type="text" id="CardNumber" placeholder="Card number" pattern="[a-z0-9-]" required>
                 </label>
               </div>
-              <button type="submit" class="card-form__button">Check the card</button>
+              <button type="button" class="card-form__button">Check the card</button>
             </form>
 
             <!--fill form-->
@@ -482,27 +482,27 @@
               <div class="card-form__inputs">
                 <span class="card-form__inputs__title">Brooklyn Public Library</span>
                 <label class="hint">
-                  <input class="card-form__input" type="text" value="John Doe" readonly>
+                  <input class="card-form__input" type="text" id="CardNameRes" readonly>
                 </label>
                 <label class="hint">
-                  <input class="card-form__input" type="text" value="F00234030" readonly>
+                  <input class="card-form__input" type="text" id="CardNumberRes" readonly>
                 </label>
               </div>
               <div class="card-form__footer">
                 <div class="statistics">
                   <span class="statistics__text">Visits</span>
                   <img class="card-form__icon" src="./images/icon/Union.svg" alt="User icon">
-                  <span class="statistics__text">23</span>
+                  <span class="statistics__text visits">23</span>
                 </div>
                 <div class="statistics">
                   <span class="statistics__text">Bonuses</span>
                   <img class="card-form__icon" src="./images/icon/Star.svg" alt="Stars icon">
-                  <span class="statistics__text">1240</span>
+                  <span class="statistics__text bonuses">1240</span>
                 </div>
                 <div class="statistics">
                   <span class="statistics__text">Books</span>
                   <img class="card-form__icon" src="./images/icon/book.svg" alt="Books icon">
-                  <span class="statistics__text">2</span>
+                  <span class="statistics__text books1">2</span>
                 </div>
               </div>
             </form>
@@ -589,12 +589,12 @@
         </div>
         <form class="form">
           <div class="form__group">
-            <label class="modal__form-text" for="email">E-mail or readers card</label>
-            <input type="text" name="email" required>
+            <label class="modal__form-text" for="loginName">E-mail or readers card</label>
+            <input type="text" id="loginName" required>
           </div>
           <div class="form__group form__group-marg">
-            <label class="modal__form-text" for="password">Password</label>
-             <input type="password" name="password" pattern="\w{8,24}" required>
+            <label class="modal__form-text" for="passwordLog">Password</label>
+             <input type="password" id="passwordLog" pattern="\w{8,24}" required>
           </div>
           <button class="button" type="submit" id="loginBtn">Log In</button>
         </form>
@@ -650,18 +650,18 @@
           <form class="form buy-book">
             <div class="form__group">
               <label class="modal__form-text">Bank card number</label>
-              <input type="text" required>
+              <input type="text" pattern="\d{16}" required>
             </div>
             <div class="form__group">
               <label class="modal__form-text">Expiration code</label>
               <div class="flex">
-                <input class="inline-input" type="text" required>
-                <input class="inline-input" type="text" required>
+                <input class="inline-input" type="text" pattern="\d{2}" required>
+                <input class="inline-input" type="text" pattern="\d{2}" required>
               </div>
             </div>
             <div class="form__group">
               <label class="modal__form-text">CVC</label>
-              <input class="inline-input" type="email" required>
+              <input class="inline-input" type="text" pattern="\d{3}" required>
             </div>
             <div class="form__group">
               <label class="modal__form-text">Cardholder name</label>
@@ -690,8 +690,8 @@
       <!--Modal profile-->
       <div class="modal modal__profile none" id="profile">
         <div class="modal__left-side">
-          <span class="modal__user-icon">JD</span>
-          <span class="modal__user-text">John Doe</span>
+          <span class="modal__user-icon" id="letters">JD</span>
+          <span class="modal__user-text" id="fullName">John Doe</span>
         </div>
         <div class="modal__right-side">
           <h2 class="modal__header">My profile</h2>
@@ -705,17 +705,17 @@
             <div class="statistics">
               <span class="profile-statistic">Visits</span>
               <img class="card-form__icon" src="./images/icon/Union.svg" alt="User icon">
-              <span class="statistics__text m-1">23</span>
+              <span class="statistics__text m-1 visits">23</span>
             </div>
             <div class="statistics">
               <span class="profile-statistic">Bonuses</span>
               <img class="card-form__icon" src="./images/icon/Star.svg" alt="Stars icon">
-              <span class="statistics__text m-1">1240</span>
+              <span class="statistics__text m-1 bonuses">1240</span>
             </div>
             <div class="statistics">
               <span class="profile-statistic">Books</span>
               <img class="card-form__icon" src="./images/icon/book.svg" alt="Books icon">
-              <span class="statistics__text m-1">2</span>
+              <span class="statistics__text m-1 books1">2</span>
             </div>
           </div>
 
@@ -725,7 +725,7 @@
             <li class="profile__list-item">Dominicana, Angie Cruz</li>
           </ul>
 
-          <div class="profile__list-card">Card number<span class="profile__list-card ochre">F00234030</span>
+          <div class="profile__list-card">Card number<span class="profile__list-card ochre card1">F00234030</span>
             <svg id="copy" xmlns="http://www.w3.org/2000/svg" width="14" height="12" viewBox="0 0 14 12" fill="none">
               <rect x="2.46826" y="0.25" width="10.5917" height="9.5" rx="0.75" stroke="black" stroke-width="0.5"/>
               <rect x="0.25" y="2.25" width="10.5917" height="9.5" rx="0.75" fill="white" stroke="black" stroke-width="0.5"/>
@@ -739,6 +739,7 @@
   <script src="./index.js" type="module"></script>
   <script src="./js/carousel.js" type="module"></script>
   <script src="./js/authorization.js" type="module"></script>
+  <script src="./js/form.js" type="module"></script>
 </body>
 
 </html>
