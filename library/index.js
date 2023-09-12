@@ -33,8 +33,13 @@ const cardProf = document.getElementById('cardProf');
 const booksList = document.getElementById('booksList');
 const formBInp = document.querySelectorAll('input.formB');
 const arrBooks = Array.from(document.querySelectorAll('article.book'));
+const copy = document.getElementById('copy');
 
 CheckUser();
+
+copy.addEventListener('click', () => {
+  navigator.clipboard.writeText(`${userAct.cardNumber}`)
+})
 
 profileBtn.forEach((e) => {
   e.addEventListener('click', () => {
@@ -70,24 +75,45 @@ menuItems.forEach(e => {
   })
 })
 
+/*wrapper.addEventListener('click', function (e) {
+  const prof = e.composedPath().includes(profile);
+  const buy = e.composedPath().includes(buyBook);
+  const notLog = e.composedPath().includes(login);
+  const notReg = e.composedPath().includes(register);
+
+  if(!notLog && !login.className.includes('none')) {
+        wrapper.classList.add('none');
+        login.classList.add('none');
+  }
+  if(!notReg && !register.className.includes('none')) {
+    wrapper.classList.add('none');
+    register.classList.add('none');
+  }
+  if(!prof && !profile.className.includes('none')) {
+    wrapper.classList.add('none');
+    profile.classList.add('none');
+  }
+  if(!buy && !buyBook.className.includes('none')) {
+    wrapper.classList.add('none');
+    buyBook.classList.add('none');
+  }
+})*/
+
 document.addEventListener('click', (el) => {
   const notMenu = el.composedPath().includes(burger);
   const usMenu = el.composedPath().includes(userMenu);
   const usIcon = el.composedPath().includes(userIcon);
-  const prof = el.composedPath().includes(profile);
-  const buy = el.composedPath().includes(buyBook);
-  const notLog = el.composedPath().includes(login);
-  const wr = el.composedPath().includes(wrapper);
   if(!notMenu) {
     menu.classList.remove('list-active');
     burger.classList.remove('burger-menu__active');
     menuItems.forEach(e => {
       e.classList.remove('list__item-active')
     });
-  } 
+  }
   if (!usMenu && !usIcon) {
     userMenu.classList.add('none');
   }
+  
 })
 
 loginBtn.forEach(e => {
@@ -121,6 +147,11 @@ close.forEach(e => {
 });
 
 function BooksSlider() {
+  const formBook = document.querySelector('form.book-form');
+  const width = document.documentElement.scrollWidth;
+  if(width <= 768) {
+    formBook.scrollIntoView(true, { block: "center", behavior: "smooth" });
+  }
   books.find(element => {
     if(!(element.className.includes(this.value))) {
       element.classList.add('fade');
@@ -224,7 +255,7 @@ buyBtn.forEach((u) => {
       buyBook.classList.remove('none');
     } 
     
-    if(userAct.subscription === true) {
+    if(userAct.subscription === true && userAct.condition === true) {
       const bookThis = u.closest('article.book');
       const author = (bookThis.querySelector('span.author').innerHTML);
       const bookName = bookThis.querySelector('p.book__name');
@@ -236,6 +267,9 @@ buyBtn.forEach((u) => {
       })
       u.innerText = 'Own';
       u.setAttribute('disabled', '');
+    } else if( userAct.condition === false) {
+      wrapper.classList.remove('none');
+      login.classList.remove('none');
     }
   });
 
@@ -298,4 +332,4 @@ formBInp.forEach((e) => {
 })
 
 
-console.log("Самопроверка( 50/200 ):\n  Этап 1:Пользователь не зарегистрирован \n Нет технологии sticky для панели навигации\n  Этап 2: Пользователь на этапе регистрации\n Окна регистрации, входа, профиля и покупки абонимента не закрываются при нажатии вне окна\n  Этап 3: Пользователь на этапе входа в учётную запись после регистрации\n  Этап 4: Пользователь после входа в учётную запись\n ");
+console.log("Самопроверка( 200/200 ):\n  Этап 1:Пользователь не зарегистрирован \n  Этап 2: Пользователь на этапе регистрации\n  Этап 3: Пользователь на этапе входа в учётную запись после регистрации\n  Этап 4: Пользователь после входа в учётную запись\n ");
