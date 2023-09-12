@@ -43,6 +43,7 @@ copy.addEventListener('click', () => {
 
 profileBtn.forEach((e) => {
   e.addEventListener('click', () => {
+    CardCheck();
     wrapper.classList.remove('none');
     profile.classList.remove('none');
   })
@@ -75,29 +76,6 @@ menuItems.forEach(e => {
   })
 })
 
-/*wrapper.addEventListener('click', function (e) {
-  const prof = e.composedPath().includes(profile);
-  const buy = e.composedPath().includes(buyBook);
-  const notLog = e.composedPath().includes(login);
-  const notReg = e.composedPath().includes(register);
-
-  if(!notLog && !login.className.includes('none')) {
-        wrapper.classList.add('none');
-        login.classList.add('none');
-  }
-  if(!notReg && !register.className.includes('none')) {
-    wrapper.classList.add('none');
-    register.classList.add('none');
-  }
-  if(!prof && !profile.className.includes('none')) {
-    wrapper.classList.add('none');
-    profile.classList.add('none');
-  }
-  if(!buy && !buyBook.className.includes('none')) {
-    wrapper.classList.add('none');
-    buyBook.classList.add('none');
-  }
-})*/
 
 document.addEventListener('click', (el) => {
   const notMenu = el.composedPath().includes(burger);
@@ -332,4 +310,57 @@ formBInp.forEach((e) => {
 })
 
 
-console.log("Самопроверка( 200/200 ):\n  Этап 1:Пользователь не зарегистрирован \n  Этап 2: Пользователь на этапе регистрации\n  Этап 3: Пользователь на этапе входа в учётную запись после регистрации\n  Этап 4: Пользователь после входа в учётную запись\n ");
+function CardCheck() {
+  const visits = document.querySelectorAll('span.visits');
+  const bonuses = document.querySelectorAll('span.bonuses');
+  const books = document.querySelectorAll('span.books1');
+  const userActive = JSON.parse(localStorage.getItem('user'));
+  const letters = document.getElementById('letters');
+  const fullName = document.getElementById('fullName');
+  const card = document.querySelector('span.card1');
+
+
+  if (userActive !== null) {
+    visits.forEach(e => {
+      e.innerText = userActive.visits;
+    });
+
+    books.forEach(e => {
+      e.innerText = userActive.books.length;
+    });
+
+    bonuses.forEach(e => {
+      e.innerText = userActive.books.length * 20;
+    })
+
+    letters.innerText = `${userActive.firstName[0]}${userActive.lastName[0]}`;
+    fullName.innerText = `${userActive.firstName} ${userActive.lastName}`;
+    card.innerText = userActive.cardNumber;
+  }
+}
+
+/*wrapper.addEventListener('click', function (e) {
+  const prof = e.composedPath().includes(profile);
+  const buy = e.composedPath().includes(buyBook);
+  const notLog = e.composedPath().includes(login);
+  const notReg = e.composedPath().includes(register);
+
+  if(!login.className.includes('none') && !notLog) {
+    wrapper.classList.add('none');
+    login.classList.add('none');
+  }
+  if(!notReg && !register.className.includes('none')) {
+    wrapper.classList.add('none');
+    register.classList.add('none');
+  }
+  if(!prof && !profile.className.includes('none')) {
+    wrapper.classList.add('none');
+    profile.classList.add('none');
+  }
+  if(!buy && !buyBook.className.includes('none')) {
+    wrapper.classList.add('none');
+    buyBook.classList.add('none');
+  }
+})*/
+
+console.log("Самопроверка( 185/200 ):\n  Этап 1:Пользователь не зарегистрирован \n  Этап 2: Пользователь на этапе регистрации\n  Этап 3: Пользователь на этапе входа в учётную запись после регистрации\n  Этап 4: Пользователь после входа в учётную запись\nОкно Профиля, регистрации, логина и покупки абонимента не закрываются при нажатии вне окна");
