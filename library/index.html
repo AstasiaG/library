@@ -612,22 +612,22 @@
             </svg>
           </a>
         </div>
-        <form class="form" name="registerForm">
+        <form class="form" id="registerForm">
           <div class="form__group">
             <label class="modal__form-text" for="fName">First name</label>
-            <input type="text" id="fName" required>
+            <input type="text" name="firstName" id="fName" required>
           </div>
           <div class="form__group">
             <label class="modal__form-text" for="lName">Last name</label>
-            <input type="text" id="lName" required>
+            <input type="text" name="lastName" id="lName" required>
           </div>
           <div class="form__group">
             <label class="modal__form-text" for="emailReg">E-mail</label>
-            <input type="email" id="emailReg" required>
+            <input type="email" name="email" id="emailReg" required>
           </div>
           <div class="form__group form__group-marg">
             <label class="modal__form-text" for="passwordReg">Password</label>
-            <input type="password" id="passwordReg" pattern="\w{8,24}" required>
+            <input type="password" name="password" id="passwordReg" pattern="\w{8,24}" required>
           </div>
           <button class="button" type="submit" id="registerBtn">Sign Up</button>
         </form>
@@ -737,7 +737,6 @@
   <script src="./index.js" type="module"></script>
   <script src="./js/carousel.js" type="module"></script>
   <script src="./js/authorization.js" type="module"></script>
-  <script src="./js/form.js" type="module"></script>
 </body>
 
 </html>
