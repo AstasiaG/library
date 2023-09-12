@@ -33,8 +33,13 @@ const cardProf = document.getElementById('cardProf');
 const booksList = document.getElementById('booksList');
 const formBInp = document.querySelectorAll('input.formB');
 const arrBooks = Array.from(document.querySelectorAll('article.book'));
+const copy = document.getElementById('copy');
 
 CheckUser();
+
+copy.addEventListener('click', () => {
+  navigator.clipboard.writeText(`${userAct.cardNumber}`)
+})
 
 profileBtn.forEach((e) => {
   e.addEventListener('click', () => {
@@ -77,7 +82,7 @@ document.addEventListener('click', (el) => {
   const prof = el.composedPath().includes(profile);
   const buy = el.composedPath().includes(buyBook);
   const notLog = el.composedPath().includes(login);
-  const wr = el.composedPath().includes(wrapper);
+  const notReg = el.composedPath().includes(register);
   if(!notMenu) {
     menu.classList.remove('list-active');
     burger.classList.remove('burger-menu__active');
@@ -88,6 +93,21 @@ document.addEventListener('click', (el) => {
   if (!usMenu && !usIcon) {
     userMenu.classList.add('none');
   }
+  registerBtn.forEach((e) => {
+    const btn = el.composedPath().includes(e);
+    if(!notReg && !btn) {
+      wrapper.classList.add('none');
+      register.classList.add('none')
+    }
+  })
+  loginBtn.forEach((e) => {
+    const btn = el.composedPath().includes(e);
+    console.log(btn);
+    if(!notLog && !btn) {
+      wrapper.classList.add('none');
+      login.classList.add('none')
+    }
+  })
 })
 
 loginBtn.forEach(e => {
