@@ -21,6 +21,7 @@ btnRegister.addEventListener('click', function (event){
     visits: 1,
     cardNumber: number.toUpperCase(),
     books: [],
+    subscription: false,
   };
 
   localStorage.setItem('user', JSON.stringify(user));

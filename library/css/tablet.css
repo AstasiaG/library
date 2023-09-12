@@ -759,7 +759,7 @@ a:hover > svg {
 .account__menu-header::after {
   position: absolute;
   content: "";
-  left: 5%;
+  left: 50%;
 
   display: block;
   width: 40px;
@@ -767,6 +767,7 @@ a:hover > svg {
   margin-top: 5px;
 
   background-color: #BB945F;
+  transform: translate(-50%);
 }
 
 .account__menu-link {
@@ -958,9 +959,13 @@ margin-left: 10px;
 .profile__list {
   display: flex;
   flex-direction: column;
+  max-width: 350px;
+  max-height: 200px;
   padding-left: 20px;
   margin: 30px 10px;
   list-style-type: disc;
+  overflow-y: auto;
+  overflow-x: auto;
 }
 
 .list__header {

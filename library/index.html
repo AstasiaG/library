@@ -58,7 +58,7 @@
           <a class="account__menu-link" href="#0" name="second">Register</a>
         </div>
         <div class="account__menu-elem none" id="authProf">
-          <span class="account__menu-header">Profile</span>
+          <span class="account__menu-header" id="cardProf">Profile</span>
           <a class="account__menu-link" href="#0" name="profile">Profile</a>
           <a class="account__menu-link" href="#0" id="logout">Log Out</a>
         </div>
@@ -177,7 +177,7 @@
             </div>
             <img class="book__cover" src="./images/book_covers/winter_book4.jpg"
               alt="The cover of Clive Irving's book The Last Queen">
-            <button class="button buy" type="button">Own</button>
+            <button class="button buy" type="button">Buy</button>
           </article>
         </div>
         <!--Spring books-->
@@ -234,7 +234,7 @@
             </div>
             <img class="book__cover" src="./images/book_covers/spring_book4.jpg"
               alt="The cover of Angie Cruz's book Dominicana">
-            <button class="button buy" type="button" disabled>Own</button>
+            <button class="button buy" type="button">Buy</button>
           </article>
         </div>
         <!--Summer books-->
@@ -650,33 +650,33 @@
           <form class="form buy-book">
             <div class="form__group">
               <label class="modal__form-text">Bank card number</label>
-              <input type="text" pattern="\d{16}" required>
+              <input class="formB" type="text" pattern="\d{16}" id="bankCard" required>
             </div>
             <div class="form__group">
               <label class="modal__form-text">Expiration code</label>
               <div class="flex">
-                <input class="inline-input" type="text" pattern="\d{2}" required>
-                <input class="inline-input" type="text" pattern="\d{2}" required>
+                <input class="inline-input formB" type="text" pattern="\d{2}" id="code1" required>
+                <input class="inline-input formB" type="text" pattern="\d{2}" id="code2" required>
               </div>
             </div>
             <div class="form__group">
               <label class="modal__form-text">CVC</label>
-              <input class="inline-input" type="text" pattern="\d{3}" required>
+              <input class="inline-input formB" type="text" pattern="\d{3}" id="cvc" required >
             </div>
             <div class="form__group">
               <label class="modal__form-text">Cardholder name</label>
-              <input type="password" required>
+              <input class="formB" type="text" required id="cardholderName">
             </div>
             <div class="form__group">
               <label class="modal__form-text">Postal code</label>
-              <input type="password" required>
+              <input class="formB" type="text" required id="postalCode">
             </div>
             <div class="form__group form__group-marg">
               <label class="modal__form-text">City / Town</label>
-              <input type="password" required>
+              <input class="formB" type="text" required id="city">
             </div>
             <div>
-              <button class="button" type="submit">Buy</button>
+              <button class="button" type="button" id="subscription" disabled>Buy</button>
               <span class="modal__book-cost">$ 25.00</span>
             </div>
           </form>
@@ -720,9 +720,7 @@
           </div>
 
           <span class="list__header">Rented books</span>
-          <ul class="profile__list">
-            <li class="profile__list-item">The Last Queen, Clive Irving</li>
-            <li class="profile__list-item">Dominicana, Angie Cruz</li>
+          <ul class="profile__list" id="booksList">
           </ul>
 
           <div class="profile__list-card">Card number<span class="profile__list-card ochre card1">F00234030</span>

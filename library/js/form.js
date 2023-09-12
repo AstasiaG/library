@@ -6,18 +6,21 @@ const letters = document.getElementById('letters');
 const fullName = document.getElementById('fullName');
 const card = document.querySelector('span.card1');
 
-visits.forEach(e => {
-  e.innerText = userActive.visits;
-});
 
-books.forEach(e => {
-  e.innerText = userActive.books.length;
-});
+if (userActive !== null) {
+  visits.forEach(e => {
+    e.innerText = userActive.visits;
+  });
 
-bonuses.forEach(e => {
-  e.innerText = userActive.books.length * 20;
-})
+  books.forEach(e => {
+    e.innerText = userActive.books.length;
+  });
 
-letters.innerText = `${userActive.firstName[0]}${userActive.lastName[0]}`;
-fullName.innerText = `${userActive.firstName} ${userActive.lastName}`;
-card.innerText = userActive.cardNumber;
+  bonuses.forEach(e => {
+    e.innerText = userActive.books.length * 20;
+  })
+
+  letters.innerText = `${userActive.firstName[0]}${userActive.lastName[0]}`;
+  fullName.innerText = `${userActive.firstName} ${userActive.lastName}`;
+  card.innerText = userActive.cardNumber;
+}
