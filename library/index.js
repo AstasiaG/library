@@ -1,6 +1,6 @@
 const menu = document.querySelector('ul.list');
 const burger = document.querySelector('a.burger-menu');
-const menuItems = document.querySelectorAll('li.list__item')
+const menuItems = document.querySelectorAll('li.list__item');
 const inp = document.getElementsByName('seasons');
 const books = Array.from(document.querySelectorAll('div.books'));
 const userMenu = document.getElementById('user_menu');
@@ -28,7 +28,11 @@ const fillCard = document.getElementById('fill');
 const cardBtn = document.querySelector('button.card-form__button');
 const cardNumRes = document.getElementById('CardNumberRes');
 const cardNameRes = document.getElementById('CardNameRes');
-const name = `${userAct.firstName} ${userAct.lastName}`;
+const buyBookBtn = document.getElementById('subscription');
+const cardProf = document.getElementById('cardProf');
+const booksList = document.getElementById('booksList');
+const formBInp = document.querySelectorAll('input.formB');
+const arrBooks = Array.from(document.querySelectorAll('article.book'));
 
 CheckUser();
 
@@ -155,22 +159,46 @@ export function CheckUser () {
     
       userIcon.innerText = `${userAct.firstName[0]}${userAct.lastName[0]}`;
       userIcon.classList.add('account__icon');
+      userIcon.setAttribute('title', `${userAct.firstName} ${userAct.lastName}`);
     
       usMenuNone.classList.add('none');
       usMenuAuth.classList.remove('none');
+      cardProf.innerText = `${userAct.cardNumber}`;
+      cardProf.style.fontSize = '13px';
 
       cardNumRes.value = userAct.cardNumber;
       cardNameRes.value = `${userAct.firstName} ${userAct.lastName}`;
       emptyCard.classList.add('none');
       fillCard.classList.remove('none');
+      userAct.books.forEach((e) => {
+        booksList.innerHTML += `<li class="profile__list-item">${e}</li>`;
+      })
+      arrBooks.forEach((e) => {
+        const a = e.childNodes[1];
+        userAct.books.forEach((el) => {
+          el.toLowerCase();
+          const l = a.childNodes[3];
+          const c = l.childNodes[0].textContent;
+          if(el.includes(c)){
+            const b = e.querySelector('button.buy');
+            b.innerText = 'Own';
+            b.setAttribute('disabled', '');
+          }
+        });
+      });
+
     } else {
       getCardNon.classList.remove('none');
       getCardAuth.classList.add('none');
     
       userIcon.classList.remove('account__icon');
+      userIcon.removeAttribute('title', `${userAct.firstName} ${userAct.lastName}`);
     
       usMenuNone.classList.remove('none');
       usMenuAuth.classList.add('none');
+      buyBtn.forEach((d) => {
+        d.innerText = 'Buy';
+      });
     }
   } else if(userAct === null) {
     getCardNon.classList.remove('none');
@@ -180,23 +208,37 @@ export function CheckUser () {
   
     usMenuNone.classList.remove('none');
     usMenuAuth.classList.add('none');
+    buyBtn.forEach((d) => {
+      d.innerText = 'Buy';
+    });
   }
 }
 
 buyBtn.forEach((u) => {
   u.addEventListener('click', () => {
-    if(userAct == null || userAct.condition === false) {
+    if(userAct === null) {
       wrapper.classList.remove('none');
       login.classList.remove('none');
-    } else {
+    } else if(userAct !== null && userAct.subscription === false){
       wrapper.classList.remove('none');
       buyBook.classList.remove('none');
+    } 
+    
+    if(userAct.subscription === true) {
+      const bookThis = u.closest('article.book');
+      const author = (bookThis.querySelector('span.author').innerHTML);
+      const bookName = bookThis.querySelector('p.book__name');
+      const b = `${bookName.childNodes[0].textContent},${author.substring(3)}`;
+      userAct.books.push(b);
+      localStorage.setItem('user', JSON.stringify(userAct));
+      userAct.books.forEach((e) => {
+        booksList.innerHTML += `<li class="profile__list-item">${e}</li>`;
+      })
+      u.innerText = 'Own';
+      u.setAttribute('disabled', '');
     }
   });
 
-  if (userAct == null || userAct.condition === false) {
-    u.innerText = 'Buy';
-  };
 });
 
 logoutBtn.addEventListener('click', () => {
@@ -208,7 +250,10 @@ logoutBtn.addEventListener('click', () => {
 });
 
 cardBtn.addEventListener('click', function() {
-  if (userAct !== null || userAct.condition === false) {
+  if(userAct === null) {
+    return;
+  } else if (userAct !== null || userAct.condition === false) {
+    const name = `${userAct.firstName} ${userAct.lastName}`;
     if(cardNum.value === userAct.cardNumber && cardName.value === name) {
         cardNumRes.value = cardNum.value;
         cardNameRes.value = cardName.value;
@@ -225,4 +270,32 @@ cardBtn.addEventListener('click', function() {
   }
 });
 
-console.log("Самопроверка( 50/50 ):\n  1.Вёрстка соответствует макету. Ширина экрана 768px\n  2.Ни на одном из разрешений до 640px включительно не появляется горизонтальная полоса прокрутки. Весь контент страницы при этом сохраняется: не обрезается и не удаляется\n  3.На ширине экрана 768рх реализовано адаптивное меню");
+buyBookBtn.addEventListener('click', () => {
+  if(!(buyBookBtn.hasAttribute('disabled'))) {
+    userAct.subscription = true;
+    localStorage.setItem('user', JSON.stringify(userAct));
+    wrapper.classList.add('none');
+    buyBook.classList.add('none');
+  } else {
+    return;
+  }
+});
+
+formBInp.forEach((e) => {
+  e.addEventListener('change', () => {
+    const bankCard = document.getElementById('bankCard').value;
+    const code1 = document.getElementById('code1').value;
+    const code2 = document.getElementById('code2').value;
+    const cvc = document.getElementById('cvc').value;
+    const cardholderName = document.getElementById('cardholderName').value;
+    const postalCode = document.getElementById('postalCode').value;
+    const city = document.getElementById('city').value;
+
+    if(bankCard != 0 && code1 != 0 && code2 != 0 && cvc != 0 && cardholderName != 0 && postalCode != 0 && city != 0) {
+      buyBookBtn.removeAttribute('disabled', '');
+    }
+  })
+})
+
+
+console.log("Самопроверка( 50/200 ):\n  Этап 1:Пользователь не зарегистрирован \n Нет технологии sticky для панели навигации\n  Этап 2: Пользователь на этапе регистрации\n Окна регистрации, входа, профиля и покупки абонимента не закрываются при нажатии вне окна\n  Этап 3: Пользователь на этапе входа в учётную запись после регистрации\n  Этап 4: Пользователь после входа в учётную запись\n ");
