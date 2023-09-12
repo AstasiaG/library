@@ -105,7 +105,7 @@ document.addEventListener('click', (el) => {
     console.log(btn);
     if(!notLog && !btn) {
       wrapper.classList.add('none');
-      login.classList.add('none')
+      login.classList.add('none');
     }
   })
 })
@@ -141,6 +141,11 @@ close.forEach(e => {
 });
 
 function BooksSlider() {
+  const formBook = document.querySelector('form.book-form');
+  const width = document.documentElement.scrollWidth;
+  if(width <= 768) {
+    formBook.scrollIntoView(true, { block: "center", behavior: "smooth" });
+  }
   books.find(element => {
     if(!(element.className.includes(this.value))) {
       element.classList.add('fade');
@@ -318,4 +323,4 @@ formBInp.forEach((e) => {
 })
 
 
-console.log("Самопроверка( 50/200 ):\n  Этап 1:Пользователь не зарегистрирован \n Нет технологии sticky для панели навигации\n  Этап 2: Пользователь на этапе регистрации\n Окна регистрации, входа, профиля и покупки абонимента не закрываются при нажатии вне окна\n  Этап 3: Пользователь на этапе входа в учётную запись после регистрации\n  Этап 4: Пользователь после входа в учётную запись\n ");
+console.log("Самопроверка( 196/200 ):\n  Этап 1:Пользователь не зарегистрирован \n Этап 2: Пользователь на этапе регистрации\n Окна регистрации, входа, профиля и покупки абонимента не закрываются при нажатии вне окна\n  Этап 3: Пользователь на этапе входа в учётную запись после регистрации\n  Этап 4: Пользователь после входа в учётную запись\n ");
