@@ -1,33 +1,34 @@
-const btnRegister = document.getElementById('registerBtn');
+const btnRegister = document.getElementById('registerForm');
 const btnLogin = document.getElementById('loginBtn');
 const wrap = document.getElementById('wrapper');
 import {CheckUser} from '../index.js';
 
-btnRegister.addEventListener('click', function (event){
+btnRegister.addEventListener('submit', function (event){
   event.preventDefault();
-
+  
   const firstName = document.getElementById('fName');
   const lastName = document.getElementById('lName');
   const email = document.getElementById('emailReg');
   const password = document.getElementById('passwordReg');
-  const number = Math.trunc(Math.random()*1e10).toString(16);
 
-  const user = {
-    firstName: firstName.value,
-    lastName: lastName.value,
-    email: email.value,
-    password: password.value,
-    condition: true,
-    visits: 1,
-    cardNumber: number.toUpperCase(),
-    books: [],
-    subscription: false,
-  };
+    const number = Math.trunc(Math.random()*1e10).toString(16);
 
-  localStorage.setItem('user', JSON.stringify(user));
-  wrap.classList.add('none');
-  CheckUser();
-  location.reload();
+    const user = {
+      firstName: firstName.value,
+      lastName: lastName.value,
+      email: email.value,
+      password: password.value,
+      condition: true,
+      visits: 1,
+      cardNumber: number.toUpperCase(),
+      books: [],
+      subscription: false,
+    };
+
+    localStorage.setItem('user', JSON.stringify(user));
+    wrap.classList.add('none');
+    CheckUser();
+    location.reload();
 })
 
 btnLogin.addEventListener('click', function (event){
