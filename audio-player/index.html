@@ -4,9 +4,54 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Audio player</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
   <script src="./index.js"></script>
+  <main>
+    <div class="wrapper">
+      <div class="player">
+        <div class="wrapper__image">
+          <img class="player__image" src="./assets/img/1.jpg" alt="Cover album  by  ">
+        </div>
+        <div class="player__panel">
+          <div class="player__song">
+            <span class="author">Allljhjh HHknjk</span>
+            <span class="song">When we are young</span>
+          </div>
+          <div class="player__controls">
+            <div class="control__backward icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+                <path d="M4.5 18C4.5 19.7728 4.84919 21.5283 5.52763 23.1662C6.20606 24.8041 7.20047 26.2923 8.45406 27.5459C9.70765 28.7995 11.1959 29.7939 12.8338 30.4724C14.4717 31.1508 16.2272 31.5 18 31.5C19.7728 31.5 21.5283 31.1508 23.1662 30.4724C24.8041 29.7939 26.2924 28.7995 27.5459 27.5459C28.7995 26.2923 29.7939 24.8041 30.4724 23.1662C31.1508 21.5283 31.5 19.7728 31.5 18C31.5 14.4196 30.0777 10.9858 27.5459 8.45406C25.0142 5.92232 21.5804 4.5 18 4.5C14.4196 4.5 10.9858 5.92232 8.45406 8.45406C5.92232 10.9858 4.5 14.4196 4.5 18Z" stroke="#E6E6E6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M18.42 17.058C17.7714 17.4309 17.7469 18.3579 18.375 18.7644L24.4566 22.7009C25.122 23.1316 26 22.654 26 21.8615L26 14.4284C26 13.6594 25.1682 13.1782 24.5016 13.5615L21.5 15.2872L18.42 17.058Z" stroke="#E6E6E6" stroke-width="2"/>
+                <path d="M9.41996 17.058C8.77137 17.4309 8.74695 18.3579 9.37501 18.7644L15.4566 22.7009C16.122 23.1316 17 22.654 17 21.8615L17 14.4284C17 13.6594 16.1682 13.1782 15.5016 13.5615L12.5 15.2872L9.41996 17.058Z" stroke="#E6E6E6" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="control__play icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="71" height="70" viewBox="0 0 71 70" fill="none">
+                <path d="M61.75 35C61.75 38.4472 61.071 41.8606 59.7518 45.0454C58.4327 48.2302 56.4991 51.124 54.0616 53.5616C51.624 55.9991 48.7302 57.9327 45.5454 59.2518C42.3606 60.571 38.9472 61.25 35.5 61.25C32.0528 61.25 28.6394 60.571 25.4546 59.2518C22.2698 57.9327 19.376 55.9991 16.9384 53.5616C14.5009 51.124 12.5673 48.2302 11.2482 45.0454C9.92898 41.8606 9.25 38.4472 9.25 35C9.25 28.0381 12.0156 21.3613 16.9384 16.4384C21.8613 11.5156 28.5381 8.75 35.5 8.75C42.4619 8.75 49.1387 11.5156 54.0616 16.4384C58.9844 21.3613 61.75 28.0381 61.75 35Z" stroke="#E6E6E6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M45.7468 34.1339C46.3954 34.5068 46.4198 35.4338 45.7917 35.8404L31.2101 45.2788C30.5448 45.7095 29.6667 45.2319 29.6667 44.4393L29.6667 26.6173C29.6667 25.8484 30.4985 25.3671 31.1652 25.7504L38.4167 29.9196L45.7468 34.1339Z" stroke="#E6E6E6" stroke-width="2.5"/>
+              </svg>
+            </div>
+            <div class="control__forward icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+                <path d="M31.5 18C31.5 19.7728 31.1508 21.5283 30.4724 23.1662C29.7939 24.8041 28.7995 26.2923 27.5459 27.5459C26.2923 28.7995 24.8041 29.7939 23.1662 30.4724C21.5283 31.1508 19.7728 31.5 18 31.5C16.2272 31.5 14.4717 31.1508 12.8338 30.4724C11.1959 29.7939 9.70765 28.7995 8.45406 27.5459C7.20047 26.2923 6.20606 24.8041 5.52763 23.1662C4.84919 21.5283 4.5 19.7728 4.5 18C4.5 14.4196 5.92232 10.9858 8.45406 8.45406C10.9858 5.92232 14.4196 4.5 18 4.5C21.5804 4.5 25.0142 5.92232 27.5459 8.45406C30.0777 10.9858 31.5 14.4196 31.5 18Z" stroke="#E6E6E6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M17.58 17.058C18.2286 17.4309 18.2531 18.3579 17.625 18.7644L11.5434 22.7009C10.878 23.1316 10 22.654 10 21.8615L10 14.4284C10 13.6594 10.8318 13.1782 11.4984 13.5615L14.5 15.2872L17.58 17.058Z" stroke="#E6E6E6" stroke-width="2"/>
+                <path d="M26.58 17.058C27.2286 17.4309 27.2531 18.3579 26.625 18.7644L20.5434 22.7009C19.878 23.1316 19 22.654 19 21.8615L19 14.4284C19 13.6594 19.8318 13.1782 20.4984 13.5615L23.5 15.2872L26.58 17.058Z" stroke="#E6E6E6" stroke-width="2"/>
+              </svg>
+            </div>
+          </div>
+          <div class="progress"></div>
+          <div class="player__time">
+            <span class="time__current">0:00</span>
+            <span class="time__total">0:00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
 </body>
 </html>
