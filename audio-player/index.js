@@ -46,8 +46,9 @@ playPause.addEventListener('click', () => {
 next.addEventListener('click', nextSong);
 prev.addEventListener('click', prevSong);
 
-trackLine.addEventListener('mousemove', (e) => {
-  coord = (e.clientX - 453);
+window.addEventListener('mousemove', (e) => {
+  let windowWidth = document.documentElement.clientWidth;
+  coord = e.clientX - ((windowWidth - 267) / 2);
 })
 
 trackLine.addEventListener('click', () => {
@@ -123,6 +124,10 @@ function changeTime() {
   current = coord * total / trackLine.clientWidth;
   song.currentTime = current;
   currentTime.innerText = displayTime(current);
+}
+
+function showCircle() {
+  progress.innerHTML = '<div class="progress__circle"></div>';
 }
 
 setInterval(() => {
