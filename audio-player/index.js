@@ -6,7 +6,8 @@ const prev = document.querySelector('.control__backward');
 const next = document.querySelector('.control__forward');
 const singer = document.querySelector('.singer');
 const trackName = document.querySelector('.song');
-const progress = document.querySelector('progress__line');
+const progress = document.querySelector('.progress__line');
+const trackLine = document.querySelector('.progress');
 const song = new Audio();
 let isPlaying = false;
 let track = 0;
@@ -25,14 +26,14 @@ const playList = [{
   }
 ];
 
-let total = 0;
 let current = 0;
 let playing = playList[track];
+let coord = 0;
 singer.innerText = playing.singer;
 trackName.innerText = playing.name;
 totalTime.innerText = playing.duration;
 
-console.log(next)
+console.log(progress)
 
 playPause.addEventListener('click', () => {
   if(!isPlaying) {
@@ -44,6 +45,14 @@ playPause.addEventListener('click', () => {
 
 next.addEventListener('click', nextSong);
 prev.addEventListener('click', prevSong);
+
+trackLine.addEventListener('mousemove', (e) => {
+  coord = (e.clientX - 453);
+})
+
+trackLine.addEventListener('click', () => {
+  changeTime();
+})
 
 function nextSong () {
   pauseAudio();
@@ -102,10 +111,25 @@ function displayTime(time) {
     return res;
 }
 
+function changeProgress() {
+    let total = (+playing.duration[0] * 60) + (+playing.duration[2] * 10) + +playing.duration[3];
+    let percent = (current / total) * 100;
+    progress.style.width = `${percent}%`;
+}
+
+function changeTime() {
+  let total = (+playing.duration[0] * 60) + (+playing.duration[2] * 10) + +playing.duration[3];
+  progress.style.width = `${coord}px`;
+  current = coord * total / trackLine.clientWidth;
+  song.currentTime = current;
+  currentTime.innerText = displayTime(current);
+}
+
 setInterval(() => {
   if(isPlaying && currentTime.innerText !== totalTime.innerText) {
     currentTime.innerText = displayTime(current);
     current += 1;
+    changeProgress();
   } else if(isPlaying && currentTime.innerText === totalTime.innerText) {
     nextSong();
     currentTime.innerText = displayTime(0);
