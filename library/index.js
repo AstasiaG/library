@@ -127,9 +127,11 @@ close.forEach(e => {
 function BooksSlider() {
   const formBook = document.querySelector('form.book-form');
   const width = document.documentElement.scrollWidth;
+  
   if(width <= 768) {
     formBook.scrollIntoView(true, { block: "center", behavior: "smooth" });
   }
+
   books.find(element => {
     if(!(element.className.includes(this.value))) {
       element.classList.add('fade');
