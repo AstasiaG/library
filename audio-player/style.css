@@ -49,19 +49,19 @@ body {
   width: 100%;
   height: 100%;
 
-  background-color: #111217;
+  background-color: #000;
   filter: brightness(2.4);
   background-image: url(./assets/img/33.gif);
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 80vw;
   opacity: 0.1;
 }
 
 .player {
   position: relative;
   z-index: 10;
-  width: 314px;
+  width: 313px;
 
   background-color: #21242D;
   border-radius:  15px 15px 15px 15px;
@@ -250,4 +250,20 @@ body {
 
 .link {
   margin-left: 5px;
+}
+
+.pause:hover>svg path {
+  stroke: #E6E6E6;
+}
+
+@media screen and (max-width: 1200px) and (min-width: 851px) {
+  .wrapper__back::after {
+    background-size: 100vw;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .wrapper__back::after {
+    background-size: 120vw;
+  }
 }
