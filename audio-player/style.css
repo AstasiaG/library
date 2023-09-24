@@ -1,0 +1,269 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;;
+  font-size: 14px;
+  font-weight: 400;
+  color: #E6E6E6;
+}
+
+.wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+
+  background-color: #111217;
+}
+
+.wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  background-image: url(./assets/img/23.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  filter: blur(7px);
+  opacity: 0.2;
+}
+
+.wrapper__back::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  background-color: #000;
+  filter: brightness(2.4);
+  background-image: url(./assets/img/33.gif);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 80vw;
+  opacity: 0.1;
+}
+
+.player {
+  position: relative;
+  z-index: 10;
+  width: 313px;
+
+  background-color: #21242D;
+  border-radius:  15px 15px 15px 15px;
+  box-shadow: 0px 0px 34px rgba(0, 0, 0, 0.45);
+}
+
+.small__icon:hover > svg path {
+  stroke: #E6E6E6;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.wrapper__image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 313px;
+  height: 255px;
+  overflow: hidden;
+  border-radius:  15px 15px 0 0;
+}
+
+.player__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.8s ease-in-out;
+}
+
+.player__panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 14px 25px 25px;
+
+  background-image: linear-gradient(44deg, #1B1C20 23.32%, #1F1D25 51.42%, #25313C 108.97%);
+  border-radius: 0px 0px 15px 15px;
+}
+
+.player__song {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 3px;
+}
+
+.singer {
+  font-size: 16px;
+  font-weight: 700;
+  color:#6588E1;
+}
+
+.player__controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 162px;
+  margin: 15px 0 9px;
+  gap: 10px;
+}
+
+.player__time {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.time__current,
+.time__total {
+  font-size: 12px;
+}
+
+.progress {
+  position: relative;
+  width: 100%;
+  height: 5px;
+  margin-bottom: 3px;
+
+  border-radius: 8px;
+  background: rgba(102, 102, 119, 0.51);
+  background-clip: content-box;
+  border: 5px solid rgba(102, 102, 119, 0);
+  cursor: pointer;
+}
+
+.progress__line{
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 0%;
+  height: 100%;
+  border-radius: 8px;
+  background: #6588E1;
+}
+
+.progress__circle {
+  position: absolute;
+  display: block;
+  top: -4px;
+  left: 0%;
+  width: 14px;
+  height: 14px;
+
+  background-color: #6588E1;
+  border-radius: 50%;
+  transform: translate(-5px, 0);
+}
+
+
+.icon,
+.control__loop,
+.control__sound {
+  cursor: pointer;
+}
+
+.icon:hover>svg path,
+.checked>svg path {
+  stroke: #6588E1;
+  transition: all 0.2s ease-in-out;
+}
+
+.sound__panel {
+  position: absolute;
+  top: 309px;
+  left: 191px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 88px;
+  height: 29px;
+
+  border-radius: 4px;
+  background-color: #21242D;
+}
+
+.sound {
+  position: relative;
+  width: 68px;
+  height: 4px;
+
+  border-radius: 8px;
+  background-color: rgba(102, 102, 119, 0.51);
+  background-clip: content-box;
+  border: 5px solid rgba(102, 102, 119, 0);
+  cursor: pointer;
+}
+
+.sound__line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70%;
+  height: 100%;
+  border-radius: 8px;
+  background: #6588E1;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 45px 15px;
+}
+
+.link__img {
+  width: 75px;
+}
+
+.link,
+.footer__text {
+  color: #84848F;
+  text-decoration: none;
+}
+
+.link {
+  margin-left: 5px;
+}
+
+.pause:hover>svg path {
+  stroke: #E6E6E6;
+}
+
+@media screen and (max-width: 1200px) and (min-width: 851px) {
+  .wrapper__back::after {
+    background-size: 100vw;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .wrapper__back::after {
+    background-size: 120vw;
+  }
+}
