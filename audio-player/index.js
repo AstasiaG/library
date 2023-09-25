@@ -67,6 +67,12 @@ window.addEventListener('mousemove', (e) => {
 })
 
 trackLine.addEventListener('click', changeTime);
+trackLine.addEventListener('mousemove', function (event) {
+  if(event.buttons == 1) {
+    event.preventDefault();
+    changeTime();
+  }
+});
 volume.addEventListener('click', changeVolume);
 
 loop.addEventListener('click', () => {
