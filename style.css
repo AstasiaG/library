@@ -150,7 +150,11 @@ a {
 
 .download__btn {
   position: absolute;
-
+  z-index: 15;
+  top: 10px;
+  right: 10px;
+  display: none;
+  cursor: pointer;
 }
 
 .author {
